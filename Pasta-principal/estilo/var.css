@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+:root{
+    /* Paleta Principal do Site */
+
+    --bg-main: #32021F;        /* fundo principal do site */
+    --bg-secondary: #4B2E39;   /* fundo secundário / variações */
+
+    --title-color: #ED96E0;    /* títulos e destaque da marca */
+
+    --text-main: #F5F5F5;      /* texto principal */
+    --text-secondary: #6C596E; /* descrições e textos menores */
+
+    --accent-color: #4ECDC4;   /* cor de destaque / elementos chamativos */
+
+    /* Paleta das Sections de Apresentação dos Produtos do Site */
+
+    --flavor-chocolate: #4A2C2A;   /* marrom chocolate */
+    --flavor-strawberry: #FF6B8A;  /* rosa morango */
+    --flavor-lemon: #C7F464;       /* verde limão */
+    --flavor-vanilla: #F3E5AB;     /* creme baunilha */
+
+    /*Fontes*/
+
+    --titulos: 'Playfair Display', arial, verdana, helvetica, sans-serif; /* Titulos Principais */
+    --texto-padrão: 'Poppins', arial, verdana, helvetica, sans-serif; /*Texto padrão*/
+    --logo1: 'Chewy', arial, verdana, helvetica, sans-serif;    /* Logo ou Textos/Titulos especificos */
+    --logo2: 'Slackey', arial, verdana, helvetica, sans-serif;  /* Logo ou Textos/Titulos especificos */
+}

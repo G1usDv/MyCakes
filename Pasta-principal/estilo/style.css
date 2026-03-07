@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+body{
+    background-color: var(--bg-main, black);
+}
+
+header{
+    min-height: 150px;
+}
+
+header h1{
+    color: var(--title-color, black);
+    font-size: 2.8em;
+    font-family: var(--logo2);
+    margin: 15px 0px 10px 15px;
+}
+
+header h1 > span{
+    color: var(--text-main);
+    font-size: 0.9em;
+} 
+
+header h2{
+    text-align: center;
+    font-size: 3em;
+    color: var(--title-color);
+    font-family: var(--logo1);
+    font-weight: normal;
+    text-shadow: 1px 1px 2px black;
+    min-width: 150px;
+}
+
