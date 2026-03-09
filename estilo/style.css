@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+body{
+    background-color: var(--bg-main, black);
+}
+
+header{
+    min-height: 120px;
+}
+
+header h1{
+    color: var(--title-color, black);
+    font-size: 2.8em;
+    font-family: var(--logo2, --logo1, arial, verdana, serif);
+    margin: 15px 0px 10px 15px;
+}
+
+header h1 > span{
+    color: var(--text-main);
+    font-size: 0.9em;
+} 
+
+header h2{
+    text-align: center;
+    font-size: 3em;
+    color: var(--title-color, pink);
+    font-family: var(--logo1, --logo2, arial, verdana, sans-serif);
+    font-weight: normal;
+    line-height: 0.9em;
+    text-shadow: 1px 1px 2px black;
+    min-width: 150px;
+}
+
+nav{
+    text-align: right;
+    margin: 10px 15px 0px 0px;
+}
+
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-family: var(--texto-padrão, verdana, arial, sans-serif);
+    margin-right: 15px;
+    text-shadow: 1px 1px 2px black;
+    transition:  0.3s ;
+}
+
+nav a:hover{
+    cursor: pointer;
+    color: var(--title-color);
+    background-color: var(--accent-color);
+    padding: 7px;
+    border-radius: 5px;
+}
+
+nav a:active{
+    transform: scale(0.85);
+}
+
+section.hero{
+    min-height: 74.5vh;
+    padding-top: 30px;
+    margin-top: 30px;
+    background-color: var(--bg-secondary);
+}
+
+section.hero h1{
+    text-align: center;
+    font-size: 2.5em;
+    font-family: var(--titulos);
+    font-weight: normal;
+    color: var(--text-secondary);
+}
+
+section.hero div.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-items: center;
+}
+
+@media (max-width: 600px){
+    section.hero div.container{
+        grid-template-columns: 1fr;
+    }
+}
+
+section.hero div.products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    background-color: var(--text-secondary);
+    border-radius: 30px;
+}
+
+section.hero div.products img{
+    width: 100%;
+    max-width: 300px;
+}
+
+
