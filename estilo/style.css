@@ -33,7 +33,7 @@ header h2{
     font-family: var(--logo1, --logo2, arial, verdana, sans-serif);
     font-weight: normal;
     line-height: 0.9em;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 0px 0px 40px rgb(255, 255, 255);
     min-width: 150px;
 }
 
@@ -49,7 +49,7 @@ nav a{
     font-size: 1.5em;
     font-family: var(--texto-padrão, verdana, arial, sans-serif);
     margin-right: 15px;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.767);
     transition:  0.3s ;
 }
 
@@ -66,25 +66,38 @@ nav a:active{
 }
 
 section.hero{
-    min-height: 74.5vh;
-    padding-top: 30px;
+    min-height: 76vh;
+    padding: 40px;
     margin-top: 30px;
     background-color: var(--bg-secondary);
+    
+    display: flex;
+    flex-direction: column;
 }
 
-section.hero h1{
+section.hero h1, h2{
     text-align: center;
-    font-size: 2.5em;
+    font-size: 4.5em;
     font-family: var(--titulos);
     font-weight: normal;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.521);
     color: var(--text-secondary);
+    margin-bottom: -10px;
+}
+
+section.hero h2{
+    margin-bottom: 35px;
 }
 
 section.hero div.container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
     justify-items: center;
+    align-items: center;
+
+    flex: 1;
+    align-content: center;
 }
 
 @media (max-width: 600px){
@@ -93,18 +106,79 @@ section.hero div.container{
     }
 }
 
-section.hero div.products{
+div.container div.products{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 10px;
     background-color: var(--text-secondary);
     border-radius: 30px;
+    max-width: 600px;
+    width: 100%;
+    transition: 1s;
 }
 
-section.hero div.products img{
+div.container div.products img{
     width: 100%;
     max-width: 300px;
+    margin: auto;
 }
 
+div.products div.info{
+    padding: 20px 20px 0px 20px;
+    margin: auto;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 0px 0px 30px 30px;
+    background-color: aliceblue;
+    max-height: 110px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
 
+div.info h3{
+    color: var(--bg-secondary);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.555);
+    font-family: var(--titulos);
+    font-size: 1.5em;
+    line-height: 0.9em;
+    margin-bottom: 10px;
+}
+
+div.info p{
+    font-family: var(--texto-padrão);
+    line-height: 1.1em;
+    margin-bottom: 0px;
+}
+
+div.info button.first-button{
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 1s ease;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: var(--title-color);
+    color: white;
+    font-size: 1.4em;
+    font-family: var(--logo1);
+    font-weight: normal;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.76);
+}
+
+div.products:hover button.first-button{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+div.products:hover div.info  p{
+    margin-bottom: 20px;
+}
+
+div.products:hover div.info{
+    max-height: 200px;
+    padding-bottom: 20px;
+}
+
+.products:hover{
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
