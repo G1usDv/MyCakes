@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+html{
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -120,6 +124,11 @@ div.container div.products img{
     width: 100%;
     max-width: 300px;
     margin: auto;
+    transition: all 0.5s ease ;
+}
+
+div.products:hover img{
+    transform: scale(1.2);
 }
 
 div.products div.info{
@@ -130,7 +139,7 @@ div.products div.info{
     font-size: 1.2em;
     border-radius: 0px 0px 30px 30px;
     background-color: aliceblue;
-    max-height: 110px;
+    max-height: 140px;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
 }
@@ -153,8 +162,9 @@ div.info p{
 div.info button.first-button{
     opacity: 0;
     transform: translateY(-10px);
-    transition: 1s ease;
+    transition: 0.5s ease;
     padding: 20px;
+    margin-top: 15px;
     border-radius: 30px;
     background-color: var(--title-color);
     color: white;
@@ -166,19 +176,196 @@ div.info button.first-button{
 
 div.products:hover button.first-button{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0);;
+}
+
+div.info button.first-button:hover{
+    cursor: pointer;
+}
+
+div.products button.first-button:active{
+    transform: scale(0.85);
 }
 
 div.products:hover div.info  p{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 div.products:hover div.info{
-    max-height: 200px;
+    max-height: 250px;
     padding-bottom: 20px;
 }
 
 .products:hover{
 transform: translateY(-5px);
 box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+section.sabor-chocolate{
+    min-height: 100vh;
+    background: linear-gradient(
+    135deg,
+    var(--flavor-chocolate),
+    #6a3b37
+);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 80px;
+}
+
+section.sabor-chocolate div.sabor-texto{
+    margin: 0px 0px 0px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.sabor-texto h2{
+    color: var(--bg-main);
+    text-align: left;
+    font-size: 9em;
+    text-shadow: 2px 2px 1px black;
+    margin-bottom: 15px;
+}
+div.sabor-texto p{
+    font-size: 2.5em;
+    font-family: var(--texto-padrão);
+    line-height: 1em;
+    text-align: justify;
+    max-width: 700px;
+    margin-bottom: 15px;
+}
+
+div.sabor-texto ul{
+    list-style-position: inside;
+    list-style-type: none;
+    font-size: 2em;
+    font-family: var(--texto-padrão);
+    color: var(--title-color);
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 15px;
+}
+
+div.sabor-texto li::before{
+    content: '✔';
+    color: var(--title-color, blue);
+    margin-right: 10px;
+}
+
+div.sabor-texto button{
+    padding: 30px;
+    max-width: 300px;
+    font-size: 3em;
+    line-height: 0.8em;
+    border-radius: 40px;
+    border: 1px solid white;
+    color: var(--flavor-chocolate, black);
+    font-family: var(--titulos, arial, helvetica, sans-serif);
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.466);
+    transition: all 0.3s ease;
+}
+
+div.sabor-texto button:hover{
+    cursor: pointer;
+    background-color: var(--title-color, rgb(64, 64, 196));
+    color: var(--bg-secondary);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.747);
+    transform: scale(1.1);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.sabor-texto button:active{
+    transform: scale(0.9);
+}
+
+div.sabor-img{
+.sabor-img::before{
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+
+    filter: blur(80px);
+}
+}
+
+div.sabor-img img{
+    filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.507))
+    drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.2));
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar{
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-30px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 768px){
+
+    section.sabor-chocolate{
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    div.sabor-texto{
+        margin: 0;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    div.sabor-texto h2{
+        font-size: 4em;
+        margin-top: 0;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    div.sabor-texto p{
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    div.sabor-texto ul{
+        font-size: 1.3em;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    div.sabor-img img{
+        margin-top: 50px;
+        width: 80%;
+        max-width: 500px;
+    }
+
 }
