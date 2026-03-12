@@ -101,3 +101,23 @@ div.products:hover img{
         max-width: 100%;
     }
 }
+
+@media (max-width: 850px){
+    section.sabor-ninho {
+        flex-direction: column;
+        text-align: justify;
+        padding: 40px 20px;
+        align-items: center;
+    }
+
+    section.sabor-ninho div.sabor-texto{
+        margin: 0px;
+        align-items: center;
+        text-align: center;
+    }
+
+    section.sabor-ninho div.sabor-texto ul{
+        text-align: justify;
+        
+    }
+}
