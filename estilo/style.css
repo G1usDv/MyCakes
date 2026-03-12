@@ -8,6 +8,7 @@ html{
     margin: 0;
     padding: 0;
     font-size: 1em;
+    box-sizing: border-box;
 }
 
 body{
@@ -43,7 +44,7 @@ header h2{
 
 nav{
     text-align: right;
-    margin: 10px 15px 0px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
 nav a{
@@ -91,6 +92,7 @@ section.hero h1, h2{
 
 section.hero h2{
     margin-bottom: 35px;
+    font-size: 4em;
 }
 
 section.hero div.container{
@@ -102,12 +104,6 @@ section.hero div.container{
 
     flex: 1;
     align-content: center;
-}
-
-@media (max-width: 600px){
-    section.hero div.container{
-        grid-template-columns: 1fr;
-    }
 }
 
 div.container div.products{
@@ -164,7 +160,6 @@ div.info button.first-button{
     transform: translateY(-10px);
     transition: 0.5s ease;
     padding: 20px;
-    margin-top: 15px;
     border-radius: 30px;
     background-color: var(--title-color);
     color: white;
@@ -176,7 +171,8 @@ div.info button.first-button{
 
 div.products:hover button.first-button{
     opacity: 1;
-    transform: translateY(0);;
+    transform: translateY(0);
+    margin-top: 15px;
 }
 
 div.info button.first-button:hover{
@@ -192,7 +188,7 @@ div.products:hover div.info  p{
 }
 
 div.products:hover div.info{
-    max-height: 250px;
+    max-height: 300px;
     padding-bottom: 20px;
 }
 
@@ -223,7 +219,7 @@ section.sabor-chocolate div.sabor-texto{
 div.sabor-texto h2{
     color: var(--bg-main);
     text-align: left;
-    font-size: 9em;
+    font-size: 10em;
     text-shadow: 2px 2px 1px black;
     margin-bottom: 15px;
 }
@@ -315,57 +311,3 @@ div.sabor-img img{
     }
 }
 
-@media (max-width: 768px){
-
-    section.sabor-chocolate{
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    div.sabor-texto{
-        margin: 0;
-        align-items: center;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    div.sabor-texto h2{
-        font-size: 4em;
-        margin-top: 0;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    div.sabor-texto p{
-        font-size: 1.4em;
-        text-align: center;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    div.sabor-texto ul{
-        font-size: 1.3em;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    div.sabor-img img{
-        margin-top: 50px;
-        width: 80%;
-        max-width: 500px;
-    }
-
-}
