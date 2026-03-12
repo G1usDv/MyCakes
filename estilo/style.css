@@ -9,6 +9,7 @@ html{
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
+    outline: 1px solid red;
 }
 
 body{
@@ -135,7 +136,7 @@ div.products div.info{
     font-size: 1.2em;
     border-radius: 0px 0px 30px 30px;
     background-color: aliceblue;
-    max-height: 140px;
+    max-height: 10px;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
 }
@@ -218,11 +219,12 @@ section.sabor-chocolate div.sabor-texto{
 
 div.sabor-texto h2{
     color: var(--bg-main);
-    text-align: left;
+    text-align: center;
     font-size: 10em;
     text-shadow: 2px 2px 1px black;
     margin-bottom: 15px;
 }
+
 div.sabor-texto p{
     font-size: 2.5em;
     font-family: var(--texto-padrão);
@@ -245,7 +247,7 @@ div.sabor-texto ul{
 div.sabor-texto li::before{
     content: '✔';
     color: var(--title-color, blue);
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 div.sabor-texto button{
@@ -276,8 +278,7 @@ div.sabor-texto button:active{
     transform: scale(0.9);
 }
 
-div.sabor-img{
-.sabor-img::before{
+div.sabor-img::before{
     content: "";
     position: absolute;
 
@@ -289,7 +290,7 @@ div.sabor-img{
 
     filter: blur(80px);
 }
-}
+
 
 div.sabor-img img{
     filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.507))
@@ -309,5 +310,54 @@ div.sabor-img img{
     100%{
         transform: translateY(0px);
     }
+}
+
+section.sabor-morango {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 80px;
+    background-image: linear-gradient(135deg, var(--flavor-strawberry), #ca1c41);
+}
+
+section.sabor-morango div.sabor-texto{
+    margin: 0px 0px 0px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+section.sabor-morango div.sabor-texto h2{
+    color: var(--bg-main);
+    text-align: center;
+    font-size: 8em;
+    text-shadow: 2px 2px 1px black;
+    margin-bottom: 20px;
+    line-height: 0.9em;
+}
+
+section.sabor-morango div.sabor-texto p{
+    font-size: 2.5em;
+    font-family: var(--texto-padrão);
+    line-height: 1em;
+    text-align: justify;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+section.sabor-morango div.sabor-texto ul{
+    list-style-position: inside;
+    list-style-type: none;
+    font-size: 2em;
+    font-family: var(--texto-padrão);
+    color: var(--bg-main);
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 15px;
+}
+
+section.sabor-morango div.sabor-texto li::before{
+    content: '✔';
+    color: var(--bg-main, purple);
+    margin-right: 20px;
 }
 

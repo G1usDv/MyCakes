@@ -96,8 +96,52 @@ div.products:hover img{
         margin: 50px 0px 0px 0px;
     }
     div.sabor-img img{
-        margin-top: 20px 0px;
+        margin-top: 20px;
         height: auto;
         max-width: 100%;
     }
+}
+
+@media (max-width: 800px){
+    section.sabor-morango{
+        flex-direction: column;
+        text-align: justify;
+        padding: 40px 20px;
+        align-items: center;
+        max-width: 800px;
+    }
+
+    section.sabor-chocolate div.sabor-texto {
+        margin: 0px;
+    }
+
+    section.sabor-morango div.sabor-texto{
+        margin: 0px;
+        padding: 0;
+        align-items: center;
+    }
+
+    section.sabor-morango div.sabor-texto h2{
+        font-size: 3em;
+        margin-top: 0;
+    }
+
+    section.sabor-morango div.sabor-texto p{
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    section.sabor-morango div.sabor-texto ul{
+        font-size: 1.3em;
+    }
+
+    section.sabor-morango div.sabor-img{
+        margin: 50px 0px 0px 0px;
+    }
+    section.sabor-morango div.sabor-img img{
+        margin-top: 20px;
+        height: auto;
+        max-width: 100%;
+    }
+
 }
