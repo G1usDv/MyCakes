@@ -9,7 +9,6 @@ html{
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
-    outline: 1px solid red;
 }
 
 body{
@@ -312,6 +311,24 @@ div.sabor-img img{
     }
 }
 
+section.sabor-ninho {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--flavor-vanilla), #ebdda8);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 80px;
+}
+
+section.sabor-ninho div.sabor-texto {
+    margin: 0px 0px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: right;
+}
+
+
 section.sabor-morango {
     min-height: 100vh;
     display: flex;
@@ -360,4 +377,10 @@ section.sabor-morango div.sabor-texto li::before{
     color: var(--bg-main, purple);
     margin-right: 20px;
 }
+
+
+
+
+
+
 

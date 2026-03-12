@@ -102,12 +102,30 @@ div.products:hover img{
     }
 }
 
-@media (max-width: 800px){
-    section.sabor-morango{
+
+@media (max-width: 850px){
+    section.sabor-ninho {
+
         flex-direction: column;
         text-align: justify;
         padding: 40px 20px;
         align-items: center;
+
+        section.sabor-ninho div.sabor-texto{
+        margin: 0px;
+        align-items: center;
+        text-align: center;
+    }
+
+    section.sabor-ninho div.sabor-texto ul{
+        text-align: justify;
+        
+    }
+    }
+}
+
+@media (max-width: 800px){
+    section.sabor-morango{
         max-width: 800px;
     }
 
@@ -145,3 +163,4 @@ div.products:hover img{
     }
 
 }
+
