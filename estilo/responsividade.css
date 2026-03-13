@@ -138,3 +138,22 @@ div.products:hover img{
         font-size: 4em;
     }
 }
+
+@media(max-width: 800px) {
+    section.sabor-prestigio{
+        flex-direction: column;
+        text-align: justify;
+        padding: 40px 20px;
+        align-items: center;
+    }
+
+    section.sabor-prestigio div.sabor-texto{
+        margin: 0px;
+        padding: 0px;
+        align-items: center;
+    }
+
+    section.sabor-prestigio div.sabor-texto h2{
+        font-size: 4em;
+    }
+}

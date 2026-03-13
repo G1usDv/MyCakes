@@ -377,3 +377,77 @@ section.sabor-morango div.sabor-texto ul{
 section.sabor-morango div.sabor-texto li::before{
     color: var(--bg-main);
 }
+
+section.sabor-prestigio{
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--flavor-lemon), #add35c);
+    display: flex;
+    justify-content: space-around;
+    padding: 80px;
+}
+
+section.sabor-prestigio div.sabor-texto{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    align-items: flex-end;
+}
+
+section.sabor-prestigio div.sabor-texto h2{
+    align-self: center;
+}
+
+section.sabor-prestigio div.sabor-texto li{
+    color: var(--bg-main);
+    font-weight: 700;
+}
+
+section.sabor-prestigio div.sabor-texto li::before{
+    content: '';
+    color: var(--bg-main);
+}
+
+section.sabor-prestigio div.sabor-texto li::after{
+    content: '✔';
+    color: var(--bg-main, blue);
+    margin-left: 20px;
+}
+
+footer{
+    min-height: 120px;
+    
+}
+
+div.social {
+    display: inline-block;
+    text-align: center;
+}
+
+div.social h2 {
+    margin: 10px;
+    font-size: 3.5em;
+    color: var(--title-color);
+}
+
+div.social img {
+    width: 80px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+div.social img:hover{
+    color: var(--logo1);
+    background-color: var(--accent-color);
+    transition-duration: 0.3s;
+}
+
+div.credits{
+    text-align: center;
+    background-color: var(--bg-secondary);
+    margin-top: 10px;
+}
+
+div.credits p {
+    font-size: 1.2em;
+    color: var(--text-main);
+}
