@@ -9,6 +9,7 @@ html{
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
+    outline: 1px solid red;
 }
 
 body{
