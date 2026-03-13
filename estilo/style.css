@@ -1,19 +1,14 @@
 @charset "UTF-8";
 
-html{
-    scroll-behavior: smooth;
-}
-
 *{
     margin: 0;
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
-    outline: 1px solid red;
 }
 
 body{
-    background-color: var(--bg-main, black);
+    background-color: var(--bg-main);
 }
 
 header{
@@ -76,7 +71,6 @@ section.hero{
     padding: 40px;
     margin-top: 30px;
     background-color: var(--bg-secondary);
-    
     display: flex;
     flex-direction: column;
 }
@@ -139,6 +133,7 @@ div.products div.info{
     max-height: 10px;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
+    min-height: 150px;
 }
 
 div.info h3{
@@ -242,6 +237,7 @@ div.sabor-texto ul{
     color: var(--title-color);
     text-shadow: 1px 1px 2px black;
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
 div.sabor-texto li::before{
@@ -280,7 +276,7 @@ div.sabor-texto button:active{
 
 div.sabor-img::before{
     content: "";
-    position: absolute;
+    position: relative;
 
     width: 500px;
     height: 500px;
@@ -312,76 +308,72 @@ div.sabor-img img{
     }
 }
 
-section.sabor-ninho {
+section.sabor-ninho{
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--flavor-vanilla), #ebdda8);
+    background-image: linear-gradient(135deg, var(--flavor-vanilla), #bbaf82);
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    padding: 0px 80px;
+    padding: 80px 80px;
 }
 
-section.sabor-ninho div.sabor-texto {
-    margin: 0px 0px 0px 50px;
+section.sabor-ninho div.sabor-texto{
     display: flex;
     flex-direction: column;
-    align-items: end;
     text-align: right;
+    align-items: flex-end;
 }
 
+section.sabor-ninho div.sabor-texto h2{
+    align-self: center;
+}
 
-section.sabor-morango {
+section.sabor-ninho div.sabor-texto li{
+    color: var(--bg-main);
+    font-weight: 700;
+}
+
+section.sabor-ninho div.sabor-texto li::before{
+    content: '';
+    color: var(--bg-main);
+}
+
+section.sabor-ninho div.sabor-texto li::after{
+    content: '✔';
+    color: var(--bg-main, blue);
+    margin-left: 20px;
+}
+
+section.sabor-morango{
     min-height: 100vh;
+    background-image: linear-gradient(135deg, var(--flavor-strawberry), #a03c52);
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    padding: 0px 80px;
-    background-image: linear-gradient(135deg, var(--flavor-strawberry), #ca1c41);
+    padding: 80px 80px;
 }
 
 section.sabor-morango div.sabor-texto{
-    margin: 0px 0px 0px 50px;
     display: flex;
     flex-direction: column;
+    margin-left: 50px;
 }
 
 section.sabor-morango div.sabor-texto h2{
-    color: var(--bg-main);
-    text-align: center;
-    font-size: 8em;
-    text-shadow: 2px 2px 1px black;
-    margin-bottom: 20px;
-    line-height: 0.9em;
+    line-height: 0.8em;
+    font-size: 7.5em;
+    margin-bottom: 30px;
 }
 
 section.sabor-morango div.sabor-texto p{
-    font-size: 2.5em;
-    font-family: var(--texto-padrão);
-    line-height: 1em;
-    text-align: justify;
-    max-width: 700px;
-    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 30px
 }
 
 section.sabor-morango div.sabor-texto ul{
-    list-style-position: inside;
-    list-style-type: none;
-    font-size: 2em;
-    font-family: var(--texto-padrão);
     color: var(--bg-main);
-    text-shadow: 1px 1px 2px black;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
 section.sabor-morango div.sabor-texto li::before{
-    content: '✔';
-    color: var(--bg-main, purple);
-    margin-right: 20px;
+    color: var(--bg-main);
 }
-
-
-
-
-
-
-

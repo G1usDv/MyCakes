@@ -49,7 +49,7 @@ div.products:hover img{
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     section.sabor-chocolate{
         flex-direction: column;
         text-align: justify;
@@ -58,10 +58,9 @@ div.products:hover img{
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     section.sabor-chocolate div.sabor-texto {
     margin: 0px 0px 0px 0px;
-
 }
 
     div.sabor-texto{
@@ -71,27 +70,27 @@ div.products:hover img{
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     div.sabor-texto h2{
         font-size: 3em;
         margin-top: 0;
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     div.sabor-texto p{
         font-size: 1.4em;
         text-align: center;
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     div.sabor-texto ul{
         font-size: 1.3em;
     }
 }
 
-@media (max-width: 850px){
+@media (max-width: 800px){
     div.sabor-img{
         margin: 50px 0px 0px 0px;
     }
@@ -102,65 +101,40 @@ div.products:hover img{
     }
 }
 
-
-@media (max-width: 850px){
-    section.sabor-ninho {
-
+@media (max-width: 800px){
+    section.sabor-ninho{
         flex-direction: column;
         text-align: justify;
         padding: 40px 20px;
         align-items: center;
+    }
 
-        section.sabor-ninho div.sabor-texto{
+    section.sabor-ninho div.sabor-texto{
         margin: 0px;
+        padding: 0px;
         align-items: center;
-        text-align: center;
     }
 
-    section.sabor-ninho div.sabor-texto ul{
-        text-align: justify;
-        
-    }
+    section.sabor-ninho div.sabor-texto h2{
+        font-size: 6em;
     }
 }
 
 @media (max-width: 800px){
     section.sabor-morango{
-        max-width: 800px;
-    }
-
-    section.sabor-chocolate div.sabor-texto {
-        margin: 0px;
+        flex-direction: column;
+        text-align: justify;
+        padding: 40px 20px;
+        align-items: center;
     }
 
     section.sabor-morango div.sabor-texto{
         margin: 0px;
-        padding: 0;
+        padding: 0px;
         align-items: center;
     }
 
     section.sabor-morango div.sabor-texto h2{
-        font-size: 3em;
-        margin-top: 0;
+        font-size: 4em;
     }
-
-    section.sabor-morango div.sabor-texto p{
-        font-size: 1.4em;
-        text-align: center;
-    }
-
-    section.sabor-morango div.sabor-texto ul{
-        font-size: 1.3em;
-    }
-
-    section.sabor-morango div.sabor-img{
-        margin: 50px 0px 0px 0px;
-    }
-    section.sabor-morango div.sabor-img img{
-        margin-top: 20px;
-        height: auto;
-        max-width: 100%;
-    }
-
 }
-
