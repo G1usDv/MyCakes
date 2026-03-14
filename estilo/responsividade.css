@@ -114,7 +114,8 @@
 
 /* RESPONSIVIDADE TABLET */
 
-@media (min-width: 800px) and (max-width:1210px){
+@media (min-width: 801px) and (max-width: 1679px){
+
     section.hero div.container{
         gap: 40px;
         display: grid;
@@ -125,12 +126,19 @@
     section.sabor-ninho,
     section.sabor-morango,
     section.sabor-prestigio{
+        flex-direction: column;
         justify-content: space-around;
         padding: 40px 20px;
         align-items: center;
     }
 
+    section.sabor-ninho div.sabor-texto, section.sabor-prestigio div.sabor-texto{
+        align-items: center;
+        max-width: 600px;
+    }
+
     div.sabor-texto{
+        align-items: center;
         max-width: 600px;
     }
 
@@ -157,7 +165,7 @@
 
 /* RESPONSIVIDADE NOTEBOOK */
 
-@media (min-width: 1211px) and (max-width: 1710px){
+@media (min-width: 1780px) and (max-width: 2079px){
     section.hero{
         min-height: 102vh;
         margin-top: 5px;
@@ -201,7 +209,7 @@
 
 /* RESPONSIVIDADE PC*/
 
-@media (min-width: 1711px) and (max-width: 3000px){
+@media (min-width: 2080px) and (max-width: 3000px){
     section.hero{
         min-height: 82vh;
     }
