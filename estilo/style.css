@@ -5,6 +5,7 @@
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -359,7 +360,7 @@ section.sabor-morango div.sabor-texto{
 
 section.sabor-morango div.sabor-texto h2{
     line-height: 0.8em;
-    font-size: 7.5em;
+    align-self: center;
     margin-bottom: 30px;
 }
 

@@ -1,159 +1,252 @@
-@charset "URF-8";
-
-@media (max-width: 800px){
-    nav{
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 800px){
+/* CELULAR PEQUENO */
+@media (max-width:480px){
     section.hero h1{
-        line-height: 0.9em;
-        font-size: 4em;
-        margin-bottom: 20px;
+        font-size:3em;
     }
 
     section.hero h2{
-        font-size: 3em;
+        font-size:2.2em;
+    }
+
+    div.sabor-texto h2{
+        font-size:2.5em;
     }
 }
 
+/* CELULAR MÉDIO */
+
 @media (max-width: 800px){
+
+    nav{
+        font-size:0.9em;
+    }
+
+    /* HERO */
+
+    section.hero h1{
+        line-height:0.9em;
+        font-size:4em;
+        margin-bottom:20px;
+    }
+
+    section.hero h2{
+        font-size:3em;
+    }
+
     section.hero div.container{
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
     }
-}
 
-@media (max-width: 800px){
+    /* PRODUTOS */
+
     div.container div.products img{
-    width: 100%;
-    max-width: 200px;
-    margin: auto;
-    transition: all 0.5s ease ;
-}
+        width:100%;
+        max-width:200px;
+        margin:auto;
+        transition:all 0.5s ease;
+    }
 
-div.products:hover img{
-    transform: scale(1.25);
-}
-}
+    div.products:hover img{
+        transform:scale(1.25);
+    }
 
-@media (max-width: 800px){
-    div.products div.info {
-        max-height: 200px;
-        padding-bottom: 20px;
+    div.products div.info{
+        max-height:200px;
+        padding-bottom:20px;
     }
 
     div.products div.info p{
-        text-align: center;
-        line-height: 1.1em;
+        text-align:center;
+        line-height:1.1em;
     }
-}
 
-@media (max-width: 800px){
-    section.sabor-chocolate{
-        flex-direction: column;
-        text-align: justify;
-        padding: 40px 20px;
+    /* SABORES */
+
+    section.sabor-chocolate,
+    section.sabor-ninho,
+    section.sabor-morango,
+    section.sabor-prestigio{
+
+        flex-direction:column;
+        text-align:justify;
+        padding:40px 20px;
+        align-items:center;
+    }
+
+    section.sabor-chocolate div.sabor-texto, section.sabor-morango div.sabor-texto{
+        margin: 10px 0px 0px 0px;
+    }
+
+    section.sabor-ninho div.sabor-texto, section.sabor-prestigio div.sabor-texto{
         align-items: center;
     }
-}
-
-@media (max-width: 800px){
-    section.sabor-chocolate div.sabor-texto {
-    margin: 0px 0px 0px 0px;
-}
 
     div.sabor-texto{
-        margin: 0px;
-        padding: 0;
         align-items: center;
     }
-}
 
-@media (max-width: 800px){
     div.sabor-texto h2{
-        font-size: 3em;
-        margin-top: 0;
+        font-size: 3.5em;
+        margin-top:0;
     }
-}
 
-@media (max-width: 800px){
     div.sabor-texto p{
         font-size: 1.4em;
         text-align: center;
     }
-}
 
-@media (max-width: 800px){
     div.sabor-texto ul{
-        font-size: 1.3em;
+        font-size:1.3em;
     }
-}
 
-@media (max-width: 800px){
+    /* IMAGEM */
+
     div.sabor-img{
-        margin: 50px 0px 0px 0px;
+        margin:50px 0 0 0;
     }
+
     div.sabor-img img{
-        margin-top: 20px;
-        height: auto;
-        max-width: 100%;
+        margin-top:20px;
+        height:auto;
+        max-width:100%;
     }
 }
 
-@media (max-width: 800px){
-    section.sabor-ninho{
-        flex-direction: column;
-        text-align: justify;
-        padding: 40px 20px;
-        align-items: center;
+/* RESPONSIVIDADE TABLET */
+
+@media (min-width: 800px) and (max-width:1210px){
+    section.hero div.container{
+        gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    section.sabor-ninho div.sabor-texto{
-        margin: 0px;
-        padding: 0px;
-        align-items: center;
-    }
-
-    section.sabor-ninho div.sabor-texto h2{
-        font-size: 6em;
-    }
-}
-
-@media (max-width: 800px){
-    section.sabor-morango{
-        flex-direction: column;
-        text-align: justify;
-        padding: 40px 20px;
-        align-items: center;
-    }
-
-    section.sabor-morango div.sabor-texto{
-        margin: 0px;
-        padding: 0px;
-        align-items: center;
-    }
-
-    section.sabor-morango div.sabor-texto h2{
-        font-size: 4em;
-    }
-}
-
-@media(max-width: 800px) {
+    section.sabor-chocolate,
+    section.sabor-ninho,
+    section.sabor-morango,
     section.sabor-prestigio{
-        flex-direction: column;
-        text-align: justify;
+        justify-content: space-around;
         padding: 40px 20px;
         align-items: center;
     }
 
-    section.sabor-prestigio div.sabor-texto{
-        margin: 0px;
-        padding: 0px;
-        align-items: center;
+    div.sabor-texto{
+        max-width: 600px;
     }
 
-    section.sabor-prestigio div.sabor-texto h2{
+    div.sabor-texto h2{
+        font-size: 6.8em;
+    }
+
+    div.sabor-texto p{
+        font-size:1.2em;
+    }
+
+    div.sabor-texto p, section.sabor-morango div.sabor-texto p{
+        font-weight: bolder;
+    }
+
+    div.sabor-texto button{
+        align-self: center;
+    }
+
+    div.sabor-img, div.sabor-img img{
+        max-width: 500px;
+    }
+}
+
+/* RESPONSIVIDADE NOTEBOOK */
+
+@media (min-width: 1211px) and (max-width: 1710px){
+    section.hero{
+        min-height: 102vh;
+        margin-top: 5px;
+    }
+
+    section.sabor-chocolate{
+        min-height: 105vh;
+    }
+    section.sabor-chocolate div.sabor-texto{
+        max-width: 800px;
+        font-size: 1.1em;
+    }
+
+    section.sabor-chocolate div.sabor-img img{
+        max-width: 680px;
+    }
+
+    section.sabor-morango{
+        padding: 55px;
+        min-height: 85vh;
+    }
+    section.sabor-morango div.sabor-texto{
+        max-width: 600px;
+        font-size: 0.7em;
+    }
+    section.sabor-morango div.sabor-texto ul{
+        font-size: 3em;
+    }
+    section.sabor-morango div.sabor-texto button{
         font-size: 4em;
+    }
+
+    section.sabor-morango div.sabor-img img{
+        min-width: 750px;
+    }
+
+    section.sabor-prestigio{
+        min-height: 100vh;
+    }
+}
+
+/* RESPONSIVIDADE PC*/
+
+@media (min-width: 1711px) and (max-width: 3000px){
+    section.hero{
+        min-height: 82vh;
+    }
+    section.sabor-chocolate{
+        min-height: 101vh;
+    }
+    section.sabor-chocolate div.sabor-texto{
+        max-width: 800px;
+        font-size: 1.4em;
+    }
+    section.sabor-chocolate div.sabor-img img{
+        min-width: 900px;
+    }
+
+
+    section.sabor-ninho{
+        min-height: 103vh;
+    }
+    section.sabor-ninho div.sabor-texto{
+        max-width: 800px;
+        font-size: 1.4em;
+    }
+    section.sabor-ninho div.sabor-img img{
+        min-width: 900px;
+    }
+
+    section.sabor-morango{
+        min-height: 103vh;
+    }
+    section.sabor-morango div.sabor-texto{
+        max-width: 800px;
+        font-size: 1.2em;
+    }
+    section.sabor-morango div.sabor-img img{
+        min-width: 900px;
+    }
+
+    section.sabor-prestigio{
+        min-height: 103vh;
+    }
+    section.sabor-prestigio div.sabor-texto{
+        max-width: 800px;
+        font-size: 1.4em;
+    }
+    section.sabor-prestigio div.sabor-img img{
+        min-width: 900px;
     }
 }
