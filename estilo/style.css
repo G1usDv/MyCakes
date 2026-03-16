@@ -67,6 +67,16 @@ nav a:active{
     transform: scale(0.85);
 }
 
+section a{
+    text-decoration: none;
+    color: white;
+}
+
+section a:visited{
+    text-decoration: none;
+    color: white;
+}
+
 section.hero{
     min-height: 76vh;
     padding: 40px;
@@ -192,6 +202,10 @@ div.products:hover div.info{
 .products:hover{
 transform: translateY(-5px);
 box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+section.sabor-chocolate a, section.sabor-morango a, section.sabor-ninho a, section.sabor-prestigio a{
+    color: var(--flavor-chocolate, black);
 }
 
 section.sabor-chocolate{
