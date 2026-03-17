@@ -1,7 +1,15 @@
 /* CELULAR PEQUENO */
 @media (max-width:480px){
-    *{
-        font-size: 200px;
+    section.hero h1{
+        font-size:3em;
+    }
+
+    section.hero h2{
+        font-size:2.2em;
+    }
+
+    div.sabor-texto h2{
+        font-size:2.5em;
     }
 }
 
