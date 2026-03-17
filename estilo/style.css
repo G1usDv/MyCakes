@@ -433,15 +433,56 @@ footer{
     
 }
 
+footer h1{
+    color: var(--title-color);
+    font-family: var(--logo2), var(--logo1), Arial, Helvetica, sans-serif;
+    font-size: 2.8em;
+    margin: 5px;
+    text-align: center;
+}
+
+footer h1 > span {
+    color: var(--text-main);
+    font-size: 0.9em;
+}
+
+
+section.org-rodape {
+    margin: 40px 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.mycakes-rodape{
+    
+}
+
+div.mycakes-rodape h1{
+    text-align: left;
+}
+
+div.mycakes-rodape h2 {
+    text-align: left;
+    font-size: 3em;
+    color: var(--title-color, pink);
+    font-family: var(--logo1, --logo2, arial, verdana, sans-serif);
+    font-weight: normal;
+    line-height: 0.9em;
+    text-shadow: 0px 0px 40px rgb(255, 255, 255);
+    min-width: 150px;
+    margin: 20px 0px;
+}
+
 div.social {
     display: inline-block;
     text-align: center;
 }
 
 div.social h2 {
-    margin: 10px;
-    font-size: 3.5em;
-    color: var(--title-color);
+    margin: 35px 15px 10px 15px;
+    font-size: 3em;
+    color: var(--text-secondary);
+    
 }
 
 div.social img {
@@ -456,13 +497,65 @@ div.social img:hover{
     transition-duration: 0.3s;
 }
 
+div.links {
+    display: inline-block;
+    text-align: center;
+}
+
+div.links h2 {
+    margin: 35px 15px 10px 15px;
+    font-size: 3em;
+    color: var(--text-secondary);
+}
+
+div.links a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-family: var(--texto-padrão, verdana, arial, sans-serif);
+    margin: 0px;
+    padding: 7px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.767);
+    transition:  0.3s ;
+}
+
+div.links a:hover{
+    cursor: pointer;
+    color: var(--title-color);
+    background-color: var(--accent-color);
+    
+    border-radius: 5px;
+}
+
+div.contato {
+    display: inline-block;
+    text-align: center;
+    
+}
+
+div.contato h2 {
+    margin: 35px 15px 10px 15px;
+    font-size: 3em;
+    color: var(--text-secondary);
+}
+
+div.contato p {
+    font-family: var(--texto-padrão);
+    color: var(--text-main);
+    font-size: 1.5em;
+    margin: 3px;
+}
+
 div.credits{
     text-align: center;
-    background-color: var(--bg-secondary);
     margin-top: 10px;
+    padding: 3px;
+    background-color: var(--bg-secondary);
 }
 
 div.credits p {
-    font-size: 1.2em;
+    font-size: 1.0em;
     color: var(--text-main);
+    margin: 15px;
 }
