@@ -5,7 +5,6 @@
     padding: 0;
     font-size: 1em;
     box-sizing: border-box;
-    
 }
 
 body{
@@ -209,7 +208,7 @@ section.sabor-chocolate a, section.sabor-morango a, section.sabor-ninho a, secti
 }
 
 section.sabor-chocolate{
-    min-height: 100vh;
+    min-height: 100dvh;
     background: linear-gradient(
     135deg,
     var(--flavor-chocolate),
@@ -324,11 +323,12 @@ div.sabor-img img{
 }
 
 section.sabor-ninho{
-    min-height: 100vh;
+    min-height: 100dvh;
     background-image: linear-gradient(135deg, var(--flavor-vanilla), #bbaf82);
     display: flex;
     justify-content: space-around;
-    padding: 80px 80px;
+    align-items: center;
+    padding: 0px 80px;
 }
 
 section.sabor-ninho div.sabor-texto{
@@ -359,11 +359,12 @@ section.sabor-ninho div.sabor-texto li::after{
 }
 
 section.sabor-morango{
-    min-height: 100vh;
-    background-image: linear-gradient(135deg, var(--flavor-strawberry), #a03c52);
+    min-height: 100dvh;
+    background: linear-gradient(135deg, var(--flavor-strawberry), #a03c52);
     display: flex;
     justify-content: space-around;
-    padding: 80px 80px;
+    align-items: center;
+    padding: 0px 80px;
 }
 
 section.sabor-morango div.sabor-texto{
@@ -394,11 +395,12 @@ section.sabor-morango div.sabor-texto li::before{
 }
 
 section.sabor-prestigio{
-    min-height: 100vh;
+    min-height: 100dvh;
     background: linear-gradient(135deg, var(--flavor-lemon), #add35c);
     display: flex;
     justify-content: space-around;
-    padding: 80px;
+    align-items: center;
+    padding: 0px 80px;
 }
 
 section.sabor-prestigio div.sabor-texto{
@@ -451,10 +453,6 @@ section.org-rodape {
     margin: 40px 70px;
     display: flex;
     justify-content: space-between;
-}
-
-div.mycakes-rodape{
-    
 }
 
 div.mycakes-rodape h1{

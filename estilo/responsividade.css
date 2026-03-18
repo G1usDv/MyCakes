@@ -15,7 +15,7 @@
 
 /* CELULAR MÉDIO */
 
-@media (max-width: 800px){
+@media (max-width: 1023px){
 
     nav{
         font-size:0.9em;
@@ -114,7 +114,7 @@
 
 /* RESPONSIVIDADE TABLET */
 
-@media (min-width: 801px) and (max-width: 1479px){
+@media (min-width: 1024px) and (max-width: 1423px){
 
     section.hero div.container{
         gap: 40px;
@@ -130,6 +130,7 @@
         justify-content: space-around;
         padding: 40px 20px;
         align-items: center;
+        min-height: 100dvh;
     }
 
     section.sabor-ninho div.sabor-texto, section.sabor-prestigio div.sabor-texto{
@@ -165,27 +166,43 @@
 
 /* RESPONSIVIDADE NOTEBOOK */
 
-@media (min-width: 1500px) and (max-width: 2079px){
+@media (min-width: 1424px) and (max-width: 1679px){
+    *{
+        box-sizing: border-box;
+    }
     section.hero{
-        min-height: 102vh;
+        min-height: 100dvh;
         margin-top: 5px;
+    }
+    section.hero div.container{
+        display: flex;
+    }
+    section.hero div.container div.products{
+        max-height: 700px;
+    }
+    section.hero div.container div.products div.info{
+        min-height: 190px;
+    }
+
+    section.sabor-chocolate, section.sabor-ninho, section.sabor-morango, section.sabor-prestigio{
+        font-size: 0.7em;
+        padding: 61px;
     }
 
     section.sabor-chocolate{
-        min-height: 105vh;
+        min-height: 100dvh;
     }
     section.sabor-chocolate div.sabor-texto{
         max-width: 800px;
         font-size: 1.1em;
     }
-
     section.sabor-chocolate div.sabor-img img{
-        max-width: 680px;
+        max-width: 600px;
     }
 
     section.sabor-morango{
-        padding: 55px;
-        min-height: 85vh;
+
+        min-height: 100dvh;
     }
     section.sabor-morango div.sabor-texto{
         max-width: 600px;
@@ -203,59 +220,6 @@
     }
 
     section.sabor-prestigio{
-        min-height: 100vh;
+        min-height: 100dvh;
     }
-}
-
-/* RESPONSIVIDADE PC*/
-
-@media (min-width: 2080px) and (max-width: 3000px){
-    section.hero{
-        min-height: 82vh;
-    }
-    section.sabor-chocolate{
-        min-height: 101vh;
-    }
-    section.sabor-chocolate div.sabor-texto{
-        max-width: 800px;
-        font-size: 1.4em;
-    }
-    section.sabor-chocolate div.sabor-img img{
-        min-width: 900px;
-    }
-
-
-    section.sabor-ninho{
-        min-height: 103vh;
-    }
-    section.sabor-ninho div.sabor-texto{
-        max-width: 800px;
-        font-size: 1.4em;
-    }
-    section.sabor-ninho div.sabor-img img{
-        min-width: 900px;
-    }
-
-    section.sabor-morango{
-        min-height: 103vh;
-    }
-    section.sabor-morango div.sabor-texto{
-        max-width: 800px;
-        font-size: 1.2em;
-    }
-    section.sabor-morango div.sabor-img img{
-        min-width: 900px;
-    }
-
-    section.sabor-prestigio{
-        min-height: 103vh;
-    }
-    section.sabor-prestigio div.sabor-texto{
-        max-width: 800px;
-        font-size: 1.4em;
-    }
-    section.sabor-prestigio div.sabor-img img{
-        min-width: 900px;
-    }
-
 }
