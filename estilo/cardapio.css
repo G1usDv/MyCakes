@@ -1,1 +1,55 @@
 @charset "UTF-8";
+
+div.btn-carrinho {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    cursor: pointer;
+    font-size: 3rem;
+    transition: 0.3s;
+}
+
+div.btn-carrinho:active{
+    transform: scale(0.9);
+}
+
+div.carrinho {
+    position: fixed;
+    top: 0;
+    right: -1600px;
+    width: 1500px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.3);
+    transition: 1s;
+    padding: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.overlay.ativo{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.carrinho.ativo{
+    right: 0;
+}
+
+.fechar {
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
