@@ -78,7 +78,6 @@ section a:visited{
 section.hero{
     min-height: 76vh;
     padding: 40px;
-    margin-top: 30px;
     background-color: var(--bg-secondary);
     display: flex;
     flex-direction: column;
