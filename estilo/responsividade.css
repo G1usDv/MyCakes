@@ -11,6 +11,8 @@
     div.sabor-texto h2{
         font-size:2.5em;
     }
+
+
 }
 
 /* CELULAR MÉDIO */
@@ -221,5 +223,120 @@
 
     section.sabor-prestigio{
         min-height: 100dvh;
+    }
+}
+
+/* BASE (mobile first) */
+.org-rodape{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px
+}
+
+.org-rodape h2{
+    text-align: center;
+    margin: 0;
+    align-items: center;
+}
+
+.org-rodape div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social a img{
+    width: 70px;
+}
+
+
+/* 📱 até 480px */
+@media (max-width:480px){
+
+    .org-rodape{
+        margin: 0;
+        line-height: 1em;
+        font-size: 2em;
+        text-align: center
+    }
+
+    .contato{
+        text-align: center;
+        font-size: 0.4em;
+    }
+
+    .credits{
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
+
+
+/* 📱📲 até 1023px (tablet pequeno / celular grande) */
+@media (max-width: 1023px){
+
+    .org-rodape{
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+
+    .mycakes-rodape{
+        grid-column: span 2;
+    }
+
+    .credits{
+        text-align: center;
+    }
+}
+
+
+/* 💻 1024px até 1423px (notebook) */
+@media (min-width: 1024px) and (max-width: 1423px){
+
+    .org-rodape{
+        grid-template-columns: repeat(4, 1fr);
+        text-align: left;
+        padding: 40px;
+    }
+
+    .credits{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 40px;
+    }
+}
+
+
+/* 🖥️ 1424px até 1679px (desktop grande) */
+@media (min-width: 1424px) and (max-width: 1679px){
+
+    .org-rodape{
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1400px;
+        margin: auto;
+        padding: 50px;
+    }
+
+    .credits{
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 480px){
+    .bolos, .bebidas, .combos{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card{
+        margin: 20px;
     }
 }

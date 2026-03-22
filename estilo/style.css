@@ -478,19 +478,19 @@ div.social h2 {
     margin: 35px 15px 10px 15px;
     font-size: 3em;
     color: var(--text-secondary);
-    
 }
 
 div.social img {
     width: 80px;
     padding: 7px;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 div.social img:hover{
     color: var(--logo1);
+    border-radius: 20px;
     background-color: var(--accent-color);
-    transition-duration: 0.3s;
 }
 
 div.links {
