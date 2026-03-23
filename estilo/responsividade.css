@@ -227,6 +227,8 @@
 }
 
 /* BASE (mobile first) */
+
+@media (max-width: 1050px){
 .org-rodape{
     display: flex;
     flex-direction: column;
@@ -250,7 +252,7 @@
 .social a img{
     width: 70px;
 }
-
+}
 
 /* 📱 até 480px */
 @media (max-width:480px){
@@ -303,8 +305,7 @@
     }
 
     .credits{
-        display: flex;
-        justify-content: space-between;
+        
         padding: 20px 40px;
     }
 }
@@ -321,10 +322,7 @@
     }
 
     .credits{
-        max-width: 1400px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
+        
         padding: 20px 0;
     }
 }
