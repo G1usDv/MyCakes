@@ -43,26 +43,30 @@
                         <img src="imagens/bolo-chocolate-maracuja-p.png" alt="Foto de bbolo de chocolate para cardapio">
                         <h3>Bolo Sabor <span class="choco">Chocolate</span></h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="1" data-nome="Bolo de Chocolate"
+                                data-preco="10.00">Adicionar</button></div>
                     </div>
                     <div class="card">
                         <img src="imagens/bolo-ninho-p.png" alt="Foto de bolo de ninho para cardapio">
                         <h3>Bolo Sabor <span class="inho">Ninho</span></h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="2" data-nome="Bolo de Ninho"
+                                data-preco="10.00">Adicionar</button></div>
                     </div>
                     <div class="card">
                         <img src="imagens/bolo-morango-p.png" alt="Foto de bolo de morango para cardapio">
                         <h3>Bolo Sabor <span class="orango">Morango</span></h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="3" data-nome="Bolo de Morango"
+                                data-preco="10.00">Adicionar</button></div>
                     </div>
                     <div class="card card-destaque">
                         <p>🔥 Mais vendido</p>
                         <img src="imagens/bolo-prestigio-p.png" alt="Foto de bolo de prestígio para cardapio">
                         <h3>Bolo Sabor <span class="tigio">Prestígio</span></h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="4" data-nome="Bolo de Prestígio"
+                                data-preco="10.00">Adicionar</button></div>
                     </div>
                 </div>
 
@@ -73,7 +77,8 @@
                             alt="Garrafinha Pitchulinha de Coca-Cola">
                         <h3>Refrigerante Pitchulinha Coca-Cola 250ml</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 3,50</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="5" data-nome="Pitchulinha Coca-Cola"
+                                data-preco="3.50">Adicionar</button></div>
                     </div>
                     <div class="card card-destaque">
                         <p>🔥 Mais vendido</p>
@@ -81,7 +86,8 @@
                             alt="Garrafinha Pitchulinha de Guaraná Antarctica">
                         <h3>Refrigerante Pitchulinha Guaraná 250ml</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 3,50</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="6" data-nome="Pitchulinha Guaraná"
+                                data-preco="3.50">Adicionar</button></div>
                     </div>
                 </div>
 
@@ -91,19 +97,72 @@
                         <img src="" alt="">
                         <h3>2 Bolos + 1 Bebida</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 20,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="7" data-nome="Combo 2 Bolos + 1 Bebida"
+                                data-preco="20.00">Adicionar</button></div>
                     </div>
                     <div class="card">
                         <img src="" alt="">
                         <h3>2 Bolos</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 15,00</span></div>
-                        <div class="btn"><button>Adicionar</button></div>
+                        <div class="btn"><button class="btn-adicionar" data-id="8" data-nome="Combo 2 Bolos"
+                                data-preco="15.00">Adicionar</button></div>
                     </div>
                 </div>
             </div>
             <div class="overlay"></div>
             <div class="carrinho">
                 <span class="fechar">Fechar ✖️</span>
+                <h2>Seu Carrinho</h2>
+
+                <div class="itens-carrinho">
+                    <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+                </div>
+
+                <div class="total-carrinho">
+                    <h3>Total: <span id="valor-total">R$ 0,00</span></h3>
+                </div>
+
+                <form id="form-checkout">
+                    <div class="campo-form">
+                        <label for="cliente-nome">Nome Completo:</label>
+                        <input type="text" id="cliente-nome" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="campo-form">
+                        <label for="cliente-turma">Turma / Sala:</label>
+                        <input type="text" id="cliente-turma" required placeholder="Ex: 3º Ano A">
+                    </div>
+                    <div class="campo-form">
+                        <label for="cliente-turno">Turno:</label>
+                        <select id="cliente-turno" required>
+                            <option value="" disabled selected>Selecione seu turno</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                        </select>
+                    </div>
+                    <div class="campo-form">
+                        <label for="cliente-pagamento">Forma de Pagamento (No dia):</label>
+                        <select id="cliente-pagamento" required>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                        </select>
+                    </div>
+                    <div class="campo-form">
+                        <label for="cliente-obs">Observações (Opcional):</label>
+                        <textarea id="cliente-obs" placeholder="Alguma restrição ou detalhe?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-finalizar">Confirmar e Gerar QR Code 🚀</button>
+                </form>
+
+                <div id="modal-qrcode"
+                    style="display: none; text-align: center; margin-top: 20px; padding: 20px; border: 2px dashed var(--bg-secondary); border-radius: 15px;">
+                    <h3>Pedido Confirmado! 🎉</h3>
+                    <p>Tire um print do QR Code abaixo para apresentar no dia:</p>
+                    <div id="qrcode-container" style="display: flex; justify-content: center; margin: 15px 0;"></div>
+                    <button type="button" id="btn-whatsapp" class="btn-finalizar"
+                        style="background-color: #25D366;">Enviar para o WhatsApp 💬</button>
+                </div>
             </div>
             </div>
         </section>
@@ -138,10 +197,11 @@
         <div class="credits">
             <p>&copy; MyCakes. Todos os direitos reservados</p>
             <p>Site desenvolvido por <strong>Luis Gustavo</strong> e <strong>Miguel Vieira</strong> para o
-                <strong>MyCakes</strong></p>
+                <strong>MyCakes</strong>
+            </p>
         </div>
     </footer>
-    <script src="script/cardapio.js"></script>
+    <script src="script/qrcode.min.js"></script>
+    <script src="script/cardapio.js" defer></script>
 </body>
-
 </html>

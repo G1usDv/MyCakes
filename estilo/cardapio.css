@@ -242,3 +242,70 @@ div.carrinho {
 .card-destaque:hover img{
     transform: scale(1.1);
 }
+
+/* Customização do Formulário de Checkout */
+#form-checkout {
+    margin-top: 25px;
+    border-top: 2px solid #fef6e4;
+    padding-top: 20px;
+}
+
+.campo-form {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-form label {
+    font-family: var(--texto-padrão);
+    font-weight: bold;
+    color: var(--bg-secondary);
+    margin-bottom: 5px;
+}
+
+.campo-form input, 
+.campo-form select, 
+.campo-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: var(--texto-padrão);
+    background-color: #fef6e4;
+    outline: none;
+    transition: 0.3s;
+}
+
+.campo-form input:focus, 
+.campo-form select:focus, 
+.campo-form textarea:focus {
+    border-color: #ff4d6d;
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 30px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-family: var(--titulos);
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.btn-finalizar:hover {
+    background-color: #ff1635;
+}
+
+.btn-finalizar:active {
+    transform: scale(0.97);
+}
+
+#qrcode-container img, #qrcode-container canvas {
+    border: 10px solid white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
