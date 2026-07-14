@@ -140,8 +140,17 @@ formCheckout.addEventListener('submit', (e) => {
     // Calcula valor total final
     const totalPedido = itensCarrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
 
-    // Estruturação dos dados simplificados em string de texto para caber perfeitamente no QR Code
-    const dadosDoPedidoTexto = `MyCakes Pedido ${numeroPedido}\nCliente: ${dadosCliente.nome}\nTurma: ${dadosCliente.turma}\nTotal: R$ ${totalPedido.toFixed(2).replace('.', ',')}`
+    // A versão da biblioteca usada no projeto não lida bem com acentos e símbolos
+    // como "º". Removê-los somente do QR evita o erro "code length overflow".
+    const textoCompativelComQr = (texto) => texto
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^\x20-\x7E\n]/g, '')
+
+    // Estruturação dos dados simplificados em string de texto para caber no QR Code
+    const dadosDoPedidoTexto = textoCompativelComQr(
+        `MyCakes Pedido ${numeroPedido}\nCliente: ${dadosCliente.nome}\nTurma: ${dadosCliente.turma}\nTotal: R$ ${totalPedido.toFixed(2).replace('.', ',')}`
+    )
 
     // 1. Limpa o container onde o QR code vai ser desenhado
     const containerQrcode = document.getElementById("qrcode-container")
