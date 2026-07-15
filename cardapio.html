@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Configurações da página e arquivos responsáveis pelo visual. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCakes - Cardápio</title>
@@ -20,6 +21,7 @@
 </head>
 
 <body>
+    <!-- Cabeçalho igual ao da página inicial, para a navegação ficar consistente. -->
     <div class="header-container">
         <header>
             <h1>My<span>Cakes</span></h1>
@@ -31,14 +33,17 @@
         </nav>
     </div>
 
+    <!-- Botão que abre o carrinho; o número é atualizado pelo JavaScript. -->
     <div class="btn-carrinho" title="Abrir Carrinho">
         🛒
         <span id="contador-carrinho" class="contador-carrinho">0</span>
     </div>
 
+    <!-- Parte principal: aqui ficam todos os produtos que podem ser adicionados. -->
     <main class="cardapio-main">
         <section class="produtos">
             <div class="container">
+                <!-- Primeira categoria. Cada botão leva id, nome e preço para o JavaScript. -->
                 <div class="titulo-secao-cardapio">
                     <h2>🍰 Bolos de Pote</h2>
                     <p>Feitos com carinho, fresquinhos todos os dias.</p>
@@ -101,6 +106,7 @@
                     </div>
                 </div>
 
+                <!-- Segunda categoria: bebidas. -->
                 <div class="titulo-secao-cardapio">
                     <h2>🥤 Bebidas Geladas</h2>
                     <p>Acompanhamentos ideais para o seu doce.</p>
@@ -135,6 +141,7 @@
                     </div>
                 </div>
 
+                <!-- Terceira categoria: combos promocionais. -->
                 <div class="titulo-secao-cardapio">
                     <h2>🎁 Combos Promocionais</h2>
                     <p>Economize combinando suas delícias favoritas!</p>
@@ -170,6 +177,7 @@
                 </div>
             </div>
 
+            <!-- Fundo escuro e gaveta lateral usados quando o carrinho está aberto. -->
             <div class="overlay"></div>
             <div class="carrinho">
                 <div class="carrinho-header">
@@ -185,6 +193,7 @@
                     <h3>Total: <span id="valor-total">R$ 0,00</span></h3>
                 </div>
 
+                <!-- Dados simples usados para montar o pedido e o QR Code. -->
                 <form id="form-checkout">
                     <div class="campo-form">
                         <label for="cliente-nome">Nome Completo:</label>
@@ -218,6 +227,7 @@
                     <button type="submit" class="btn-finalizar">Confirmar e Gerar QR Code 🚀</button>
                 </form>
 
+                <!-- Só aparece depois que a pessoa confirma o pedido. -->
                 <div id="modal-qrcode" style="display: none;">
                     <h3>Pedido Confirmado! 🎉</h3>
                     <p>Tire um print do QR Code abaixo para apresentar no dia e envie o pedido ao nosso WhatsApp:</p>
@@ -228,6 +238,7 @@
         </section>
     </main>
 
+    <!-- Rodapé com as mesmas informações da página inicial. -->
     <footer>
         <section class="org-rodape">
             <div class="mycakes-rodape">
@@ -259,6 +270,7 @@
         </div>
     </footer>
 
+    <!-- Biblioteca pronta para desenhar o QR Code e código do carrinho. -->
     <script src="script/qrcode.min.js"></script>
     <script src="script/cardapio.js" defer></script>
 </body>

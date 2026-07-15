@@ -1,0 +1,598 @@
+@charset "UTF-8";
+
+/*
+   Ajustes para o site funcionar bem fora do computador.
+   O layout normal foi pensado para desktop; abaixo ele se adapta para tablet,
+   celular e telas pequenas, sem precisar criar outra página.
+*/
+
+#proposito,
+#social {
+    scroll-margin-top: 96px;
+}
+
+/* Tablets e notebooks menores */
+@media (max-width: 1024px) {
+    .scroll-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .secao-vistas {
+        height: auto;
+        min-height: 0;
+        scroll-snap-align: none;
+        padding: 120px 32px 72px;
+    }
+
+    .hero-principal {
+        min-height: 680px;
+    }
+
+    .header-container {
+        padding: 14px 32px;
+    }
+
+    nav a {
+        font-size: 1rem;
+        margin-left: 14px;
+    }
+
+    .hero-boasvindas h2 {
+        font-size: clamp(3.5rem, 7vw, 4.5rem);
+    }
+
+    .hero-boasvindas p {
+        font-size: 1.25rem;
+    }
+
+    .proposito-conteudo {
+        max-width: 820px;
+    }
+
+    .proposito-conteudo h2 {
+        font-size: clamp(2.8rem, 6vw, 3.5rem);
+    }
+
+    .proposito-conteudo p {
+        font-size: 1.1rem;
+    }
+
+    .valores-grid {
+        gap: 20px;
+    }
+
+    section.hero div.container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 720px;
+    }
+
+    section.sabor-chocolate,
+    section.sabor-ninho,
+    section.sabor-morango,
+    section.sabor-prestigio {
+        gap: 36px;
+        justify-content: center;
+        padding: 90px 8%;
+    }
+
+    .sabor-texto {
+        flex: 1 1 0;
+        max-width: 460px;
+    }
+
+    .sabor-texto h2 {
+        font-size: clamp(3.2rem, 7vw, 4.2rem);
+    }
+
+    .sabor-texto p {
+        font-size: 1.1rem;
+    }
+
+    .sabor-texto li {
+        font-size: 1rem;
+    }
+
+    .sabor-img {
+        flex: 1 1 0;
+    }
+
+    .sabor-img img {
+        max-width: 330px;
+    }
+
+    .org-rodape {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 48px;
+        max-width: 760px;
+    }
+
+    .cardapio-main {
+        margin-top: 72px;
+    }
+
+    .produtos {
+        min-height: calc(100vh - 72px);
+        padding: 28px 0 48px;
+    }
+
+    .container {
+        padding: 0 28px;
+    }
+
+    .grid-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+/* Celulares e tablets pequenos */
+@media (max-width: 767px) {
+    html {
+        scroll-padding-top: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .header-container {
+        position: sticky;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 16px 12px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: clamp(1.7rem, 7vw, 2.1rem);
+        line-height: 1;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 12px;
+        width: 100%;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 0.82rem;
+        line-height: 1.35;
+        white-space: nowrap;
+    }
+
+    nav a:hover {
+        padding: 0;
+        color: var(--title-color);
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    .secao-vistas {
+        padding: 64px 20px;
+    }
+
+    .hero-principal {
+        min-height: calc(100vh - 86px);
+        min-height: calc(100svh - 86px);
+        padding-top: 56px;
+        padding-bottom: 56px;
+        background-position: center;
+    }
+
+    #proposito,
+    #social {
+        scroll-margin-top: 110px;
+    }
+
+    .hero-boasvindas {
+        max-width: 580px;
+    }
+
+    .hero-boasvindas h2 {
+        font-size: clamp(2.45rem, 11vw, 3.7rem);
+    }
+
+    .hero-boasvindas p {
+        margin: 18px 0 30px;
+        font-size: clamp(1rem, 4.5vw, 1.18rem);
+        line-height: 1.55;
+    }
+
+    .btn-conhecer {
+        padding: 13px 24px;
+        font-size: 1rem;
+    }
+
+    .tag-valores {
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+    }
+
+    .proposito-conteudo h2 {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        margin: 12px 0 16px;
+    }
+
+    .proposito-conteudo p {
+        margin-bottom: 28px;
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .valor-card {
+        padding: 22px 18px;
+    }
+
+    .valor-card h3 {
+        font-size: 1.45rem;
+    }
+
+    section.hero {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    section.hero h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        line-height: 1.15;
+    }
+
+    section.hero h2 {
+        margin: 8px 0 22px;
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+    }
+
+    section.hero div.container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 420px;
+    }
+
+    div.container div.products img {
+        max-width: 160px;
+        margin: 12px auto;
+    }
+
+    div.products div.info {
+        padding: 16px;
+    }
+
+    section.sabor-chocolate,
+    section.sabor-ninho,
+    section.sabor-morango,
+    section.sabor-prestigio {
+        flex-direction: column !important;
+        gap: 28px;
+        min-height: 0;
+        padding: 64px 24px;
+        text-align: center;
+    }
+
+    .sabor-texto {
+        align-items: center;
+        order: 1;
+        width: 100%;
+    }
+
+    .sabor-texto h2 {
+        font-size: clamp(3rem, 14vw, 4rem);
+        text-align: center;
+    }
+
+    .sabor-texto p {
+        font-size: 1rem;
+    }
+
+    .sabor-texto ul {
+        align-self: stretch;
+        margin-bottom: 24px;
+        text-align: left;
+    }
+
+    .sabor-texto li {
+        font-size: 0.95rem;
+        justify-content: flex-start;
+    }
+
+    .sabor-texto li::before {
+        margin-right: 10px;
+    }
+
+    .sabor-texto button {
+        width: min(100%, 260px);
+        padding: 13px 22px;
+        font-size: 1.2rem;
+    }
+
+    .sabor-img {
+        order: 2;
+        width: 100%;
+    }
+
+    .sabor-img img {
+        max-width: min(78vw, 300px);
+    }
+
+    footer.secao-vistas {
+        min-height: 0;
+        padding: 48px 24px 0;
+    }
+
+    .org-rodape {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin: 0;
+        padding: 0 0 32px;
+        text-align: center;
+    }
+
+    footer:not(.secao-vistas) .org-rodape {
+        padding: 48px 24px 32px;
+    }
+
+    div.mycakes-rodape h1 {
+        font-size: clamp(2.15rem, 10vw, 2.7rem);
+    }
+
+    div.mycakes-rodape h2,
+    footer h2 {
+        text-align: center;
+    }
+
+    footer h2 {
+        margin-bottom: 8px;
+        font-size: 1.35rem;
+    }
+
+    footer p,
+    footer a {
+        font-size: 0.92rem;
+    }
+
+    div.social img {
+        width: 44px;
+    }
+
+    .credits {
+        padding: 14px 18px;
+        font-size: 0.78rem;
+    }
+
+    .cardapio-main {
+        margin-top: 0;
+    }
+
+    .produtos {
+        min-height: 0;
+        padding: 12px 0 36px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .titulo-secao-cardapio {
+        margin: 28px 0 16px;
+        border-left-width: 4px;
+        padding-left: 11px;
+    }
+
+    .titulo-secao-cardapio h2 {
+        font-size: clamp(1.65rem, 8vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .titulo-secao-cardapio p {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .grid-produtos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 36px;
+    }
+
+    .card {
+        min-height: 0;
+        padding: 22px 16px;
+    }
+
+    .img-wrapper,
+    .img-wrapper-bebida,
+    .img-wrapper-combo {
+        height: 160px;
+        margin-bottom: 12px;
+    }
+
+    .img-wrapper-bebida img {
+        height: 130px;
+    }
+
+    .img-wrapper-combo img {
+        height: 135px;
+    }
+
+    .card h3 {
+        font-size: 1.08rem;
+    }
+
+    .desc-produto {
+        flex-grow: 0;
+        font-size: 0.88rem;
+    }
+
+    .card .btn {
+        width: min(100%, 290px);
+    }
+
+    .card button {
+        min-width: 0;
+        font-size: 1rem;
+    }
+
+    .btn-carrinho {
+        right: 18px;
+        bottom: 18px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .contador-carrinho {
+        top: -4px;
+        right: -4px;
+    }
+
+    .carrinho {
+        right: -100vw;
+        width: 100%;
+        max-width: none;
+        padding: 22px 18px;
+    }
+
+    .carrinho-header {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+    }
+
+    .carrinho-header h2 {
+        font-size: 1.55rem;
+    }
+
+    .total-carrinho {
+        padding: 13px 15px;
+    }
+
+    .total-carrinho h3 {
+        font-size: 1rem;
+    }
+
+    .campo-form label {
+        display: block;
+    }
+
+    .campo-form input,
+    .campo-form select,
+    .campo-form textarea {
+        font-size: 16px;
+    }
+
+    #modal-qrcode {
+        padding: 16px 12px;
+    }
+
+    #qrcode-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Telas estreitas, como aparelhos de 320 px */
+@media (max-width: 420px) {
+    .header-container {
+        gap: 7px;
+        padding-inline: 12px;
+    }
+
+    nav {
+        column-gap: 8px;
+    }
+
+    nav a {
+        font-size: 0.74rem;
+    }
+
+    .secao-vistas {
+        padding-inline: 16px;
+    }
+
+    .hero-principal {
+        padding-inline: 18px;
+    }
+
+    .btn-conhecer {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .sabor-chocolate,
+    .sabor-ninho,
+    .sabor-morango,
+    .sabor-prestigio {
+        padding-inline: 18px !important;
+    }
+
+    .sabor-texto li {
+        font-size: 0.9rem;
+    }
+
+    footer.secao-vistas {
+        padding-inline: 16px;
+    }
+
+    footer:not(.secao-vistas) .org-rodape {
+        padding-inline: 16px;
+    }
+
+    .container {
+        padding-inline: 12px;
+    }
+
+    .card {
+        border-radius: 16px;
+    }
+
+    .tag-destaque {
+        top: 10px;
+        right: 10px;
+        font-size: 0.68rem;
+    }
+
+    .btn-carrinho {
+        right: 12px;
+        bottom: 12px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Evita seções cortadas em notebooks de baixa altura. */
+@media (max-height: 760px) and (min-width: 768px) {
+    .scroll-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .secao-vistas {
+        height: auto;
+        min-height: 0;
+        scroll-snap-align: none;
+    }
+
+    .hero-principal {
+        min-height: 620px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

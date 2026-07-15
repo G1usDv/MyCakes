@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-/* --- LAYOUT DO MAIN (Evita conflitos com o topo fixo) --- */
+/* Estilos usados somente na página de cardápio e no carrinho. */
+
+/* Espaço para o conteúdo não ficar escondido atrás do cabeçalho fixo. */
 .cardapio-main {
     margin-top: 80px; /* Afasta o conteúdo do menu fixado no topo */
     background-color: var(--bg-main, #FAF5F5);
@@ -18,7 +20,7 @@
     padding: 0 20px;
 }
 
-/* --- TÍTULOS DE CATEGORIAS --- */
+/* Títulos que separam bolos, bebidas e combos. */
 .titulo-secao-cardapio {
     margin: 40px 0 20px 0;
     border-left: 5px solid var(--title-color, #E72D4D);
@@ -40,7 +42,7 @@
     margin-top: 4px;
 }
 
-/* --- GRID DE PRODUTOS --- */
+/* Grade que organiza os produtos automaticamente em colunas. */
 .grid-produtos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -48,7 +50,7 @@
     margin-bottom: 50px;
 }
 
-/* --- CARDS DE PRODUTOS --- */
+/* Cada card é a caixinha de um produto. */
 .card {
     background: white;
     border-radius: 20px;

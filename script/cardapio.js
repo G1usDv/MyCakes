@@ -1,35 +1,41 @@
+// Este arquivo cuida do carrinho, do QR Code e da mensagem para o WhatsApp.
+
+// Pegamos no HTML tudo o que o JavaScript precisa mostrar, esconder ou atualizar.
 const btnAbrir = document.querySelector('.btn-carrinho')
 const fechar = document.querySelector('.fechar')
 const overlay = document.querySelector('.overlay')
 const carrinho = document.querySelector('.carrinho')
 
-// Seletores novos para o sistema do carrinho
+// Partes internas do carrinho e do formulário de pedido.
 const containerItens = document.querySelector('.itens-carrinho')
 const totalElemento = document.getElementById('valor-total')
 const formCheckout = document.getElementById('form-checkout')
 const modalQrcode = document.getElementById('modal-qrcode')
 const qrcodeContainer = document.getElementById('qrcode-container')
 const btnWhatsapp = document.getElementById('btn-whatsapp')
-const contadorCarrinho = document.getElementById('contador-carrinho') // NOVO SELETOR
+const contadorCarrinho = document.getElementById('contador-carrinho')
 
-// Estado da Aplicação (Memória temporária do app)
+// Itens do carrinho. O localStorage faz a lista continuar ali mesmo se a página for atualizada.
 let itensCarrinho = JSON.parse(localStorage.getItem('mycakes_carrinho')) || []
 
+// Mostra o fundo escuro e traz a gaveta do carrinho para a tela.
 function abrirCarrinho(){
     overlay.classList.add('ativo')
     carrinho.classList.add('ativo')
 }
 
+// Faz o contrário: esconde a gaveta e libera a página novamente.
 function fecharCarrinho(){
     carrinho.classList.remove('ativo')
     overlay.classList.remove('ativo')
 }
 
+// Liga os cliques do botão, do "Fechar" e do fundo escuro às funções acima.
 btnAbrir.addEventListener('click', abrirCarrinho)
 fechar.addEventListener('click', fecharCarrinho)
 overlay.addEventListener('click', fecharCarrinho)
 
-// NOVO: Função para atualizar a bolinha com o número do carrinho
+// Atualiza a bolinha vermelha que informa quantos itens existem no carrinho.
 function atualizarContador() {
     // Soma a quantidade total de todos os itens do carrinho (ex: 2 bolos + 1 refri = 3)
     const totalItens = itensCarrinho.reduce((acc, item) => acc + item.quantidade, 0)
@@ -42,7 +48,7 @@ function atualizarContador() {
     }
 }
 
-// 1. ADICIONAR ITEM AO CARRINHO
+// Quando alguém clica em "Adicionar", usamos os dados guardados no próprio botão.
 document.querySelectorAll('.btn-adicionar').forEach(botao => {
     botao.addEventListener('click', () => {
         const id = botao.getAttribute('data-id')
@@ -63,16 +69,16 @@ document.querySelectorAll('.btn-adicionar').forEach(botao => {
     })
 })
 
-// 2. SALVAR E ATUALIZAR INTERFACE
+// Salva a lista no navegador e redesenha o carrinho na tela.
 function salvarAtualizar() {
     localStorage.setItem('mycakes_carrinho', JSON.stringify(itensCarrinho))
     renderizarCarrinho()
 }
 
-// 3. RENDERIZAR ITENS NA TELA
+// Cria novamente a lista visual do carrinho sempre que ela muda.
 function renderizarCarrinho() {
     containerItens.innerHTML = ""
-    atualizarContador() // NOVO: Atualiza o balão do ícone toda vez que renderiza
+    atualizarContador()
 
     if (itensCarrinho.length === 0) {
         containerItens.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio.</p>'
@@ -88,7 +94,7 @@ function renderizarCarrinho() {
 
         const divItem = document.createElement('div')
         divItem.classList.add('item-carrinho-lista')
-        // Estilo inline básico para encaixar no seu layout
+        // Estes estilos montam uma linha simples: produto, quantidade e subtotal.
         divItem.style.display = "flex"
         divItem.style.justifyContent = "space-between"
         divItem.style.alignItems = "center"
@@ -116,7 +122,7 @@ function renderizarCarrinho() {
     totalElemento.textContent = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`
 }
 
-// 4. MUDAR QUANTIDADE DOS ITENS (Declarada globalmente para os onclick do template literal funcionar)
+// Muda a quantidade. Ela fica no "window" porque os botões + e - são criados dentro do HTML acima.
 window.alterarQtd = function(id, alteracao) {
     const item = itensCarrinho.find(item => item.id === id)
     if (item) {
@@ -128,10 +134,10 @@ window.alterarQtd = function(id, alteracao) {
     }
 }
 
-// Executa renderização ao carregar a página para recuperar dados salvos
+// Ao abrir a página, mostra os itens que já estavam salvos no navegador.
 renderizarCarrinho()
 
-// 5. CRIAÇÃO E FINALIZAÇÃO DO PEDIDO (Método adaptado do vídeo)
+// Quando o formulário é enviado, montamos os dados do pedido e mostramos o QR Code.
 formCheckout.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -140,10 +146,10 @@ formCheckout.addEventListener('submit', (e) => {
         return
     }
 
-    // Gerando ID sequencial simples
+    // Número simples para identificar o pedido. Ele não é salvo em banco de dados.
     const numeroPedido = `#${Math.floor(100 + Math.random() * 900)}`
 
-    // Coleta dados do formulário
+    // Pega o que a pessoa digitou no formulário.
     const dadosCliente = {
         nome: document.getElementById('cliente-nome').value,
         turma: document.getElementById('cliente-turma').value,
@@ -152,10 +158,10 @@ formCheckout.addEventListener('submit', (e) => {
         obs: document.getElementById('cliente-obs').value || "Nenhuma"
     }
 
-    // Calcula valor total final
+    // Soma o valor de todos os produtos para mostrar o total.
     const totalPedido = itensCarrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
 
-    // Cria a lista textual de itens para o QR Code
+    // Transforma os itens em texto para colocar dentro do QR Code.
     let listaItensTexto = ""
     itensCarrinho.forEach(item => {
         listaItensTexto += `- ${item.quantidade}x ${item.nome}\n`
@@ -168,7 +174,7 @@ formCheckout.addEventListener('submit', (e) => {
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^\x20-\x7E\n]/g, '')
 
-    // Estruturação dos dados simplificados incluindo os ITENS em formato string de texto
+    // Junta todas as informações que serão guardadas dentro do QR Code.
     const dadosDoPedidoTexto = textoCompativelComQr(
         `MyCakes Pedido ${numeroPedido}\n` +
         `Cliente: ${dadosCliente.nome}\n` +
@@ -177,21 +183,21 @@ formCheckout.addEventListener('submit', (e) => {
         `Total: R$ ${totalPedido.toFixed(2).replace('.', ',')}`
     )
 
-    // 1. Limpa o container onde o QR code vai ser desenhado
+    // Limpa um QR antigo, caso a pessoa tenha feito outro pedido sem recarregar a página.
     const containerQrcode = document.getElementById("qrcode-container")
     containerQrcode.innerHTML = ""
 
-    // 2. Alterna as visualizações na tela
+    // Esconde o formulário e mostra a área de confirmação.
     formCheckout.style.display = "none"
     modalQrcode.style.display = "block"
 
-    // 3. GERAÇÃO DO QR CODE (Sintaxe oficial do vídeo)
+    // A biblioteca externa recebe o texto e desenha o QR Code.
     try {
         new QRCode(containerQrcode, {
             text: dadosDoPedidoTexto,
             width: 180,
             height: 180,
-            colorDark: "#4A2031", // Cor dark berry do MyCakes
+            colorDark: "#4A2031", // Cor escura da marca.
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
         })
@@ -200,9 +206,9 @@ formCheckout.addEventListener('submit', (e) => {
         containerQrcode.innerHTML = "<p style='color: red;'>Erro ao desenhar o QR Code. Mas o pedido foi gravado! Clique abaixo para enviar no WhatsApp!</p>"
     }
 
-    // Configuração do botão do WhatsApp
+    // Prepara a mensagem que será aberta no WhatsApp quando a pessoa clicar no botão.
     btnWhatsapp.onclick = () => {
-        const telefoneLoja = "557988891359" // NUMERO DE WHATS
+        const telefoneLoja = "557988891359" // Número da loja, com DDI e DDD.
         
         let textoMensagem = `🎂 *Novo Pedido MyCakes: ${numeroPedido}*\n\n`
         textoMensagem += `👤 *Cliente:* ${dadosCliente.nome}\n`
@@ -220,18 +226,18 @@ formCheckout.addEventListener('submit', (e) => {
 
         const linkWhatsapp = `https://wa.me/${telefoneLoja}?text=${encodeURIComponent(textoMensagem)}`
         
-        // --- PROCESSO DE RESET DO CARRINHO E INTERFACE ---
-        // 1. Esvazia o array na memória
+        // Depois de preparar a mensagem, limpamos o carrinho para não enviar o mesmo pedido de novo.
+        // 1. Esvazia a lista que está na memória.
         itensCarrinho = []
-        // 2. Limpa o LocalStorage para não salvar itens velhos
+        // 2. Limpa o navegador para não recuperar itens antigos.
         localStorage.removeItem('mycakes_carrinho')
-        // 3. Atualiza a tela (vai redesenhar o carrinho vazio e atualizar o contador de bolinha para "0/escondido")
+        // 3. Atualiza a tela e esconde o contador, pois o carrinho ficou vazio.
         renderizarCarrinho()
 
-        // 4. Dispara o WhatsApp em nova aba
+        // 4. Abre o WhatsApp em outra aba.
         window.open(linkWhatsapp, '_blank')
         
-        // 5. Reseta o fluxo do formulário e esconde os modais
+        // 5. Deixa tudo pronto para um próximo pedido.
         formCheckout.style.display = "block"
         modalQrcode.style.display = "none"
         formCheckout.reset()

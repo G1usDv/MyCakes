@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
+/* Estilos gerais da página inicial: estrutura, seções, produtos e rodapé. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Rolagem magnética no container principal */
+/* Faz os links internos deslizarem suavemente até a seção escolhida. */
 html {
     scroll-behavior: smooth;
 }
@@ -16,14 +17,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Ativa o efeito de snap no PC */
+/* No computador, a página para certinho no começo de cada seção. */
 .scroll-container {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
 
-/* Configuração universal para cada seção ocupar 100% da tela visível no PC */
+/* No computador, cada seção ocupa a tela inteira. O responsividade.css muda isso no celular. */
 .secao-vistas {
     height: 100vh;
     min-height: 100vh;
@@ -36,7 +37,7 @@ body {
     padding: 100px 40px 40px 40px; /* Padding superior alto para compensar o header fixo */
 }
 
-/* --- HEADER FIXO NO TOPO --- */
+/* Cabeçalho que continua visível enquanto a pessoa navega. */
 .header-container {
     position: fixed;
     top: 0;

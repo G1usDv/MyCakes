@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+/*
+   Este arquivo guarda as cores e fontes do MyCakes.
+   Quando quiser mudar uma cor do site inteiro, comece por aqui.
+*/
 :root{
-    /* Paleta Principal do Site */
+    /* Cores usadas na maior parte das telas. */
 
     --bg-main: #32021F;        /* fundo principal do site */
     --bg-secondary: #4B2E39;   /* fundo secundário / variações */
@@ -13,14 +17,14 @@
 
     --accent-color: #4ECDC4;   /* cor de destaque / elementos chamativos */
 
-    /* Paleta das Sections de Apresentação dos Produtos do Site */
+    /* Cores especiais das seções que apresentam cada sabor. */
 
     --flavor-chocolate: #4A2C2A;   /* marrom chocolate */
     --flavor-strawberry: #FF6B8A;  /* rosa morango */
     --flavor-lemon: #C7F464;       /* verde limão */
     --flavor-vanilla: #F3E5AB;     /* creme baunilha */
 
-    /*Fontes*/
+    /* Fontes: cada variável evita repetir nomes grandes pelo CSS. */
 
     --titulos: 'DynaPuff', arial, verdana, helvetica, sans-serif; /* Titulos Principais */
     --texto-padrão: 'Poppins', arial, verdana, helvetica, sans-serif; /*Texto padrão*/
