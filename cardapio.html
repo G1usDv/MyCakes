@@ -14,105 +14,168 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Chewy&family=DynaPuff:wght@400..700&family=Slackey&display=swap"
         rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="imagens/mycakes-ico.png" type="image/x-icon">
 </head>
 
 <body>
-    <header>
-        <h1>My<span>Cakes</span></h1>
-        <h2>CARDÁPIO.</h2>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="cardapio.html">Cardápio</a>
-        <a href="#social">Redes Sociais</a>
-    </nav>
-    <div class="btn-carrinho">🛒</div>
-    <main>
+    <div class="header-container">
+        <header>
+            <h1>My<span>Cakes</span></h1>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="#social">Redes Sociais</a>
+        </nav>
+    </div>
+
+    <div class="btn-carrinho" title="Abrir Carrinho">
+        🛒
+        <span id="contador-carrinho" class="contador-carrinho">0</span>
+    </div>
+
+    <main class="cardapio-main">
         <section class="produtos">
             <div class="container">
-                <h2>🍰 Bolos</h2>
-                <div class="bolos">
+                <div class="titulo-secao-cardapio">
+                    <h2>🍰 Bolos de Pote</h2>
+                    <p>Feitos com carinho, fresquinhos todos os dias.</p>
+                </div>
+
+                <div class="bolos grid-produtos">
                     <div class="card card-destaque">
-                        <p>🔥 Mais vendido</p>
-                        <img src="imagens/bolo-chocolate-maracuja-p.png" alt="Foto de bbolo de chocolate para cardapio">
+                        <div class="tag-destaque">🔥 Mais vendido</div>
+                        <div class="img-wrapper">
+                            <img src="imagens/bolo-chocolate-maracuja-p.png"
+                                alt="Foto de bolo de chocolate para cardapio">
+                        </div>
                         <h3>Bolo Sabor <span class="choco">Chocolate</span></h3>
+                        <p class="desc-produto">Massa de chocolate fofinha com recheio cremoso.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="1" data-nome="Bolo de Chocolate"
-                                data-preco="10.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="1" data-nome="Bolo de Chocolate"
+                                data-preco="10.00">Adicionar</button>
+                        </div>
                     </div>
+
                     <div class="card">
-                        <img src="imagens/bolo-ninho-p.png" alt="Foto de bolo de ninho para cardapio">
+                        <div class="img-wrapper">
+                            <img src="imagens/bolo-ninho-p.png" alt="Foto de bolo de ninho para cardapio">
+                        </div>
                         <h3>Bolo Sabor <span class="inho">Ninho</span></h3>
+                        <p class="desc-produto">Massa branca com creme suave de Leite Ninho.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="2" data-nome="Bolo de Ninho"
-                                data-preco="10.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="2" data-nome="Bolo de Ninho"
+                                data-preco="10.00">Adicionar</button>
+                        </div>
                     </div>
+
                     <div class="card">
-                        <img src="imagens/bolo-morango-p.png" alt="Foto de bolo de morango para cardapio">
+                        <div class="img-wrapper">
+                            <img src="imagens/bolo-morango-p.png" alt="Foto de bolo de morango para cardapio">
+                        </div>
                         <h3>Bolo Sabor <span class="orango">Morango</span></h3>
+                        <p class="desc-produto">Creme leve e fofinho com pedaços de morango.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="3" data-nome="Bolo de Morango"
-                                data-preco="10.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="3" data-nome="Bolo de Morango"
+                                data-preco="10.00">Adicionar</button>
+                        </div>
                     </div>
+
                     <div class="card card-destaque">
-                        <p>🔥 Mais vendido</p>
-                        <img src="imagens/bolo-prestigio-p.png" alt="Foto de bolo de prestígio para cardapio">
+                        <div class="tag-destaque">🔥 Mais vendido</div>
+                        <div class="img-wrapper">
+                            <img src="imagens/bolo-prestigio-p.png" alt="Foto de bolo de prestígio para cardapio">
+                        </div>
                         <h3>Bolo Sabor <span class="tigio">Prestígio</span></h3>
+                        <p class="desc-produto">O clássico coco ralado com calda de chocolate.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 10,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="4" data-nome="Bolo de Prestígio"
-                                data-preco="10.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="4" data-nome="Bolo de Prestígio"
+                                data-preco="10.00">Adicionar</button>
+                        </div>
                     </div>
                 </div>
 
-                <h2>🥤 Bebidas</h2>
-                <div class="bebidas">
+                <div class="titulo-secao-cardapio">
+                    <h2>🥤 Bebidas Geladas</h2>
+                    <p>Acompanhamentos ideais para o seu doce.</p>
+                </div>
+
+                <div class="bebidas grid-produtos">
                     <div class="card">
-                        <img src="imagens/foto-cocacola-p.png" class="bebidas"
-                            alt="Garrafinha Pitchulinha de Coca-Cola">
-                        <h3>Refrigerante Pitchulinha Coca-Cola 250ml</h3>
+                        <div class="img-wrapper-bebida">
+                            <img src="imagens/foto-cocacola-p.png" class="img-bebida"
+                                alt="Garrafinha Pitchulinha de Coca-Cola">
+                        </div>
+                        <h3>Pitchulinha Coca-Cola 250ml</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 3,50</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="5" data-nome="Pitchulinha Coca-Cola"
-                                data-preco="3.50">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="5" data-nome="Pitchulinha Coca-Cola"
+                                data-preco="3.50">Adicionar</button>
+                        </div>
                     </div>
+
                     <div class="card card-destaque">
-                        <p>🔥 Mais vendido</p>
-                        <img src="imagens/foto-guarana-p.png" class="bebidas"
-                            alt="Garrafinha Pitchulinha de Guaraná Antarctica">
-                        <h3>Refrigerante Pitchulinha Guaraná 250ml</h3>
+                        <div class="tag-destaque">🔥 Mais vendido</div>
+                        <div class="img-wrapper-bebida">
+                            <img src="imagens/foto-guarana-p.png" class="img-bebida"
+                                alt="Garrafinha Pitchulinha de Guaraná Antarctica">
+                        </div>
+                        <h3>Pitchulinha Guaraná 250ml</h3>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 3,50</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="6" data-nome="Pitchulinha Guaraná"
-                                data-preco="3.50">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="6" data-nome="Pitchulinha Guaraná"
+                                data-preco="3.50">Adicionar</button>
+                        </div>
                     </div>
                 </div>
 
-                <h2>🎁 COMBOS</h2>
-                <div class="combos">
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>2 Bolos + 1 Bebida</h3>
+                <div class="titulo-secao-cardapio">
+                    <h2>🎁 Combos Promocionais</h2>
+                    <p>Economize combinando suas delícias favoritas!</p>
+                </div>
+
+                <div class="combos grid-produtos">
+                    <div class="card combo-card">
+                        <div class="img-wrapper-combo">
+                            <img src="imagens/combo-1.png.png" class="combo-placeholder" class="img-combo">
+                        </div>
+                        <h3>Combo Família</h3>
+                        <p class="desc-produto">2 Bolos de pote à sua escolha + 1 Bebida gelada.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 20,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="7" data-nome="Combo 2 Bolos + 1 Bebida"
-                                data-preco="20.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="7" data-nome="Combo 1"
+                                data-preco="20.00">Adicionar</button>
+                        </div>
                     </div>
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>2 Bolos</h3>
+
+                    <div class="card combo-card">
+                        <div class="img-wrapper-combo">
+                            <img src="imagens/combo-2.png" class="combo-placeholder" class="img-combo"
+                                alt="Foto de dois bolos de pote deliciosos">
+                        </div>
+                        <h3>Combo Dupla</h3>
+                        <p class="desc-produto">2 Bolos de pote deliciosos por um preço especial.</p>
                         <div class="preco">Por apenas: <span class="destaque-preco">R$ 15,00</span></div>
-                        <div class="btn"><button class="btn-adicionar" data-id="8" data-nome="Combo 2 Bolos"
-                                data-preco="15.00">Adicionar</button></div>
+                        <div class="btn">
+                            <button class="btn-adicionar" data-id="8" data-nome="Combo 2"
+                                data-preco="15.00">Adicionar</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="overlay"></div>
             <div class="carrinho">
-                <span class="fechar">Fechar ✖️</span>
-                <h2>Seu Carrinho</h2>
+                <div class="carrinho-header">
+                    <h2>Seu Carrinho</h2>
+                    <span class="fechar">Fechar ✖</span>
+                </div>
 
                 <div class="itens-carrinho">
                     <p class="carrinho-vazio">Seu carrinho está vazio.</p>
@@ -149,43 +212,39 @@
                     </div>
                     <div class="campo-form">
                         <label for="cliente-obs">Observações (Opcional):</label>
-                        <textarea id="cliente-obs" placeholder="Alguma restrição ou detalhe?"></textarea>
+                        <textarea id="cliente-obs" rows="3" placeholder="Alguma restrição ou detalhe?"></textarea>
                     </div>
 
                     <button type="submit" class="btn-finalizar">Confirmar e Gerar QR Code 🚀</button>
                 </form>
 
-                <div id="modal-qrcode"
-                    style="display: none; text-align: center; margin-top: 20px; padding: 20px; border: 2px dashed var(--bg-secondary); border-radius: 15px;">
+                <div id="modal-qrcode" style="display: none;">
                     <h3>Pedido Confirmado! 🎉</h3>
-                    <p>Tire um print do QR Code abaixo para apresentar no dia:</p>
-                    <div id="qrcode-container" style="display: flex; justify-content: center; margin: 15px 0;"></div>
-                    <button type="button" id="btn-whatsapp" class="btn-finalizar"
-                        style="background-color: #25D366;">Enviar para o WhatsApp 💬</button>
+                    <p>Tire um print do QR Code abaixo para apresentar no dia e envie o pedido ao nosso WhatsApp:</p>
+                    <div id="qrcode-container"></div>
+                    <button type="button" id="btn-whatsapp" class="btn-whatsapp">Enviar para o WhatsApp 💬</button>
                 </div>
-            </div>
             </div>
         </section>
     </main>
+
     <footer>
         <section class="org-rodape">
             <div class="mycakes-rodape">
                 <h1>My<span>Cakes</span></h1>
                 <h2>Pequenos potes. Grandes momentos</h2>
             </div>
-
             <div class="social" id="social">
                 <h2>Redes Sociais</h2>
-                <a href="https://www.instagram.com/mycakes.social/" target="_blank"><img
-                        src="imagens/instagram_logo_white.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/mycakes.social/" target="_blank">
+                    <img src="imagens/instagram_logo_white.png" alt="Instagram">
+                </a>
             </div>
-
             <div class="links">
                 <h2>Links</h2>
                 <p><a href="index.html">Home</a></p>
                 <p><a href="cardapio.html">Cardápio</a></p>
             </div>
-
             <div class="contato">
                 <h2>Contato</h2>
                 <p>mycakes.social@gmail.com</p>
@@ -193,14 +252,13 @@
                 <p>Aracaju, SE</p>
             </div>
         </section>
-
         <div class="credits">
             <p>&copy; MyCakes. Todos os direitos reservados</p>
             <p>Site desenvolvido por <strong>Luis Gustavo</strong> e <strong>Miguel Vieira</strong> para o
-                <strong>MyCakes</strong>
-            </p>
+                <strong>MyCakes</strong></p>
         </div>
     </footer>
+
     <script src="script/qrcode.min.js"></script>
     <script src="script/cardapio.js" defer></script>
 </body>

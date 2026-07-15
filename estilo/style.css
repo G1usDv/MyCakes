@@ -1,557 +1,475 @@
 @charset "UTF-8";
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+/* Rolagem magnética no container principal */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     background-color: var(--bg-main);
+    overflow-x: hidden;
 }
 
-header{
-    min-height: 120px;
+/* Ativa o efeito de snap no PC */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
-header h1{
-    color: var(--title-color, black);
-    font-size: 2.8em;
-    font-family: var(--logo2, --logo1, arial, verdana, serif);
-    margin: 15px 0px 10px 15px;
-}
-
-header h1 > span{
-    color: var(--text-main);
-    font-size: 0.9em;
-} 
-
-header h2{
-    text-align: center;
-    font-size: 3em;
-    color: var(--title-color, pink);
-    font-family: var(--logo1, --logo2, arial, verdana, sans-serif);
-    font-weight: normal;
-    line-height: 0.9em;
-    text-shadow: 0px 0px 40px rgb(255, 255, 255);
-    min-width: 150px;
-}
-
-nav{
-    text-align: right;
-    margin: 20px 0px 0px 0px;
-}
-
-nav a{
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-    font-family: var(--texto-padrão, verdana, arial, sans-serif);
-    margin-right: 15px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.767);
-    transition:  0.3s ;
-}
-
-nav a:hover{
-    cursor: pointer;
-    color: var(--title-color);
-    background-color: var(--accent-color);
-    padding: 7px;
-    border-radius: 5px;
-}
-
-nav a:active{
-    transform: scale(0.85);
-}
-
-section a{
-    text-decoration: none;
-    color: white;
-}
-
-section a:visited{
-    text-decoration: none;
-    color: white;
-}
-
-section.hero{
-    min-height: 76vh;
-    padding: 40px;
-    background-color: var(--bg-secondary);
+/* Configuração universal para cada seção ocupar 100% da tela visível no PC */
+.secao-vistas {
+    height: 100vh;
+    min-height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-}
-
-section.hero h1, h2{
-    text-align: center;
-    font-size: 4.5em;
-    font-family: var(--titulos);
-    font-weight: normal;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.521);
-    color: var(--text-secondary);
-    margin-bottom: -10px;
-}
-
-section.hero h2{
-    margin-bottom: 35px;
-    font-size: 4em;
-}
-
-section.hero div.container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
-
-    flex: 1;
-    align-content: center;
-}
-
-div.container div.products{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--text-secondary);
-    border-radius: 30px;
-    max-width: 600px;
-    width: 100%;
-    transition: 1s;
-}
-
-div.container div.products img{
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
-    transition: all 0.5s ease ;
-}
-
-div.products:hover img{
-    transform: scale(1.2);
-}
-
-div.products div.info{
-    padding: 20px 20px 0px 20px;
-    margin: auto;
-    max-width: 600px;
-    text-align: center;
-    font-size: 1.2em;
-    border-radius: 0px 0px 30px 30px;
-    background-color: aliceblue;
-    max-height: 10px;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    min-height: 150px;
-}
-
-div.info h3{
-    color: var(--bg-secondary);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.555);
-    font-family: var(--titulos);
-    font-size: 1.5em;
-    line-height: 0.9em;
-    margin-bottom: 10px;
-}
-
-div.info p{
-    font-family: var(--texto-padrão);
-    line-height: 1.1em;
-    margin-bottom: 0px;
-}
-
-div.info button.first-button{
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: 0.5s ease;
-    padding: 20px;
-    border-radius: 30px;
-    background-color: var(--title-color);
-    color: white;
-    font-size: 1.4em;
-    font-family: var(--logo1);
-    font-weight: normal;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.76);
-}
-
-div.products:hover button.first-button{
-    opacity: 1;
-    transform: translateY(0);
-    margin-top: 15px;
-}
-
-div.info button.first-button:hover{
-    cursor: pointer;
-}
-
-div.products button.first-button:active{
-    transform: scale(0.85);
-}
-
-div.products:hover div.info  p{
-    margin-bottom: 10px;
-}
-
-div.products:hover div.info{
-    max-height: 300px;
-    padding-bottom: 20px;
-}
-
-.products:hover{
-transform: translateY(-5px);
-box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-section.sabor-chocolate a, section.sabor-morango a, section.sabor-ninho a, section.sabor-prestigio a{
-    color: var(--flavor-chocolate, black);
-}
-
-section.sabor-chocolate{
-    min-height: 100dvh;
-    background: linear-gradient(
-    135deg,
-    var(--flavor-chocolate),
-    #6a3b37
-);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0px 80px;
-}
-
-section.sabor-chocolate div.sabor-texto{
-    margin: 0px 0px 0px 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-div.sabor-texto h2{
-    color: var(--bg-main);
-    text-align: center;
-    font-size: 10em;
-    text-shadow: 2px 2px 1px black;
-    margin-bottom: 15px;
-}
-
-div.sabor-texto p{
-    font-size: 2.5em;
-    font-family: var(--texto-padrão);
-    line-height: 1em;
-    text-align: justify;
-    max-width: 700px;
-    margin-bottom: 15px;
-}
-
-div.sabor-texto ul{
-    list-style-position: inside;
-    list-style-type: none;
-    font-size: 2em;
-    font-family: var(--texto-padrão);
-    color: var(--title-color);
-    text-shadow: 1px 1px 2px black;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-div.sabor-texto li::before{
-    content: '✔';
-    color: var(--title-color, blue);
-    margin-right: 20px;
-}
-
-div.sabor-texto button{
-    padding: 30px;
-    max-width: 300px;
-    font-size: 3em;
-    line-height: 0.8em;
-    border-radius: 40px;
-    border: 1px solid white;
-    color: var(--flavor-chocolate, black);
-    font-family: var(--titulos, arial, helvetica, sans-serif);
-    font-weight: bold;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.466);
-    transition: all 0.3s ease;
-}
-
-div.sabor-texto button:hover{
-    cursor: pointer;
-    background-color: var(--title-color, rgb(64, 64, 196));
-    color: var(--bg-secondary);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.747);
-    transform: scale(1.1);
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-div.sabor-texto button:active{
-    transform: scale(0.9);
-}
-
-div.sabor-img::before{
-    content: "";
     position: relative;
-
-    width: 500px;
-    height: 500px;
-
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-
-    filter: blur(80px);
+    padding: 100px 40px 40px 40px; /* Padding superior alto para compensar o header fixo */
 }
 
-
-div.sabor-img img{
-    filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.507))
-    drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.2));
-    animation: flutuar 3s ease-in-out infinite;
-}
-
-@keyframes flutuar{
-    0%{
-        transform: translateY(0px);
-    }
-
-    50%{
-        transform: translateY(-50px);
-    }
-
-    100%{
-        transform: translateY(0px);
-    }
-}
-
-section.sabor-ninho{
-    min-height: 100dvh;
-    background-image: linear-gradient(135deg, var(--flavor-vanilla), #bbaf82);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px 80px;
-}
-
-section.sabor-ninho div.sabor-texto{
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    align-items: flex-end;
-}
-
-section.sabor-ninho div.sabor-texto h2{
-    align-self: center;
-}
-
-section.sabor-ninho div.sabor-texto li{
-    color: var(--bg-main);
-    font-weight: 700;
-}
-
-section.sabor-ninho div.sabor-texto li::before{
-    content: '';
-    color: var(--bg-main);
-}
-
-section.sabor-ninho div.sabor-texto li::after{
-    content: '✔';
-    color: var(--bg-main, blue);
-    margin-left: 20px;
-}
-
-section.sabor-morango{
-    min-height: 100dvh;
-    background: linear-gradient(135deg, var(--flavor-strawberry), #a03c52);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px 80px;
-}
-
-section.sabor-morango div.sabor-texto{
-    display: flex;
-    flex-direction: column;
-    margin-left: 50px;
-}
-
-section.sabor-morango div.sabor-texto h2{
-    line-height: 0.8em;
-    align-self: center;
-    margin-bottom: 30px;
-}
-
-section.sabor-morango div.sabor-texto p{
-    font-weight: 500;
-    margin-bottom: 30px
-}
-
-section.sabor-morango div.sabor-texto ul{
-    color: var(--bg-main);
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-section.sabor-morango div.sabor-texto li::before{
-    color: var(--bg-main);
-}
-
-section.sabor-prestigio{
-    min-height: 100dvh;
-    background: linear-gradient(135deg, var(--flavor-lemon), #add35c);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px 80px;
-}
-
-section.sabor-prestigio div.sabor-texto{
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    align-items: flex-end;
-}
-
-section.sabor-prestigio div.sabor-texto h2{
-    align-self: center;
-}
-
-section.sabor-prestigio div.sabor-texto li{
-    color: var(--bg-main);
-    font-weight: 700;
-}
-
-section.sabor-prestigio div.sabor-texto li::before{
-    content: '';
-    color: var(--bg-main);
-}
-
-section.sabor-prestigio div.sabor-texto li::after{
-    content: '✔';
-    color: var(--bg-main, blue);
-    margin-left: 20px;
-}
-
-footer{
-    min-height: 120px;
-    
-}
-
-footer h1{
-    color: var(--title-color);
-    font-family: var(--logo2), var(--logo1), Arial, Helvetica, sans-serif;
-    font-size: 2.8em;
-    margin: 5px;
-    text-align: center;
-}
-
-footer h1 > span {
-    color: var(--text-main);
-    font-size: 0.9em;
-}
-
-
-section.org-rodape {
-    margin: 40px 70px;
+/* --- HEADER FIXO NO TOPO --- */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(74, 32, 49, 0.95); /* Burgundy clássico MyCakes transparente */
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-div.mycakes-rodape h1{
-    text-align: left;
+header h1 {
+    color: var(--title-color, #ffffff);
+    font-size: 2.2em;
+    font-family: var(--logo2, var(--logo1, sans-serif));
+    margin: 0;
 }
 
-div.mycakes-rodape h2 {
-    text-align: left;
-    font-size: 3em;
-    color: var(--title-color, pink);
-    font-family: var(--logo1, --logo2, arial, verdana, sans-serif);
-    font-weight: normal;
-    line-height: 0.9em;
-    text-shadow: 0px 0px 40px rgb(255, 255, 255);
-    min-width: 150px;
-    margin: 20px 0px;
+header h1 > span {
+    color: #e2a0b1; /* Tom rosa complementar */
+    font-size: 0.9em;
 }
 
-div.social {
+nav {
+    margin: 0;
+}
+
+nav a {
     display: inline-block;
-    text-align: center;
-}
-
-div.social h2 {
-    margin: 35px 15px 10px 15px;
-    font-size: 3em;
-    color: var(--text-secondary);
-}
-
-div.social img {
-    width: 80px;
-    padding: 7px;
-    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-family: var(--texto-padrão, sans-serif);
+    margin-left: 20px;
     transition: 0.3s;
 }
 
-div.social img:hover{
-    color: var(--logo1);
+nav a:hover {
+    color: #4A2031;
+    background-color: #fff;
+    padding: 5px 12px;
     border-radius: 20px;
-    background-color: var(--accent-color);
 }
 
-div.links {
-    display: inline-block;
+/* --- 1ª SEÇÃO: HERO PRINCIPAL --- */
+.hero-principal {
+    background: linear-gradient(rgba(74, 32, 49, 0.4), rgba(74, 32, 49, 0.7)), url('../imagens/background-hero.jpg') no-repeat center center/cover;
+    background-color: var(--bg-secondary);
+    justify-content: center;
+}
+
+.hero-boasvindas {
     text-align: center;
+    max-width: 800px;
 }
 
-div.links h2 {
-    margin: 35px 15px 10px 15px;
-    font-size: 3em;
-    color: var(--text-secondary);
+.hero-boasvindas h2 {
+    font-size: 4.8em;
+    font-family: var(--logo1, sans-serif);
+    color: #ffffff;
+    line-height: 1.1em;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-div.links a {
+.hero-boasvindas h2 span {
+    color: var(--title-color, #E72D4D);
+}
+
+.hero-boasvindas p {
+    color: #f4eae8;
+    font-size: 1.6em;
+    font-family: var(--texto-padrão, sans-serif);
+    margin: 20px 0 40px 0;
+}
+
+.btn-conhecer {
     display: inline-block;
-    text-decoration: none;
+    padding: 15px 35px;
+    background-color: var(--title-color, #E72D4D);
     color: white;
-    font-size: 1.5em;
-    font-family: var(--texto-padrão, verdana, arial, sans-serif);
-    margin: 0px;
-    padding: 7px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.767);
-    transition:  0.3s ;
+    text-decoration: none;
+    font-family: var(--texto-padrão, sans-serif);
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s;
 }
 
-div.links a:hover{
-    cursor: pointer;
-    color: var(--title-color);
-    background-color: var(--accent-color);
-    
-    border-radius: 5px;
+.btn-conhecer:hover {
+    transform: translateY(-3px);
+    background-color: #c9203d;
 }
 
-div.contato {
-    display: inline-block;
+/* --- 2ª SEÇÃO: PROPOSITO (VALORES) --- */
+.proposito {
+    background-color: #FAF5F5;
+    justify-content: center;
+}
+
+.proposito-conteudo {
+    max-width: 1000px;
     text-align: center;
-    
 }
 
-div.contato h2 {
-    margin: 35px 15px 10px 15px;
-    font-size: 3em;
-    color: var(--text-secondary);
+.tag-valores {
+    font-family: var(--texto-padrão, sans-serif);
+    color: var(--bg-secondary, #4A2031);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 1em;
 }
 
-div.contato p {
-    font-family: var(--texto-padrão);
-    color: var(--text-main);
-    font-size: 1.5em;
-    margin: 3px;
+.proposito-conteudo h2 {
+    font-size: 3.5em;
+    font-family: var(--logo1, sans-serif);
+    color: var(--bg-secondary, #4A2031);
+    margin: 15px 0;
+    line-height: 1.1em;
 }
 
-div.credits{
-    text-align: center;
-    margin-top: 10px;
-    padding: 3px;
+.proposito-conteudo p {
+    font-size: 1.3em;
+    font-family: var(--texto-padrão, sans-serif);
+    color: #555;
+    line-height: 1.6em;
+    margin-bottom: 40px;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.valor-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(74, 32, 49, 0.05);
+    border: 1px dashed rgba(74, 32, 49, 0.15);
+}
+
+.valor-card h3 {
+    font-size: 1.6em;
+    font-family: var(--logo1, sans-serif);
+    color: var(--bg-secondary);
+    margin-bottom: 10px;
+}
+
+.valor-card p {
+    font-size: 1em;
+    margin: 0;
+    line-height: 1.4em;
+}
+
+/* --- 3ª SEÇÃO: CARDS DE PRODUTOS --- */
+section.hero {
     background-color: var(--bg-secondary);
 }
 
-div.credits p {
-    font-size: 1.0em;
-    color: var(--text-main);
-    margin: 15px;
+section.hero h1 {
+    font-size: 3em;
+    color: white;
+    font-family: var(--logo1);
+    text-align: center;
+}
+
+section.hero h2 {
+    font-size: 2em;
+    color: #e2a0b1;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+section.hero div.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Alinhamento fixo de 4 colunas em PC */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+div.container div.products {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+div.container div.products img {
+    width: 100%;
+    max-width: 180px;
+    margin: 15px auto;
+    transition: transform 0.4s ease;
+}
+
+div.products:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+div.products div.info {
+    padding: 15px;
+    text-align: center;
+    background-color: #FAF5F5;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.info h3 {
+    color: var(--bg-secondary);
+    font-family: var(--logo1);
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+div.info p {
+    font-family: var(--texto-padrão);
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.3em;
+    margin-bottom: 12px;
+}
+
+div.info button.first-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--title-color, #E72D4D);
+    color: white;
+    font-size: 1em;
+    font-family: var(--logo1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+div.info button.first-button:hover {
+    background-color: #c9203d;
+}
+
+/* --- 4ª A 7ª SEÇÃO: SABORES EM DESTAQUE --- */
+section.sabor-chocolate, section.sabor-ninho, section.sabor-morango, section.sabor-prestigio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px 10%;
+}
+
+/* Alinhamento alternado de imagens e textos */
+section.sabor-chocolate, section.sabor-morango {
+    flex-direction: row;
+}
+
+section.sabor-ninho, section.sabor-prestigio {
+    flex-direction: row-reverse;
+}
+
+/* Configurações de Cores e Gradientes dos Sabores */
+section.sabor-chocolate {
+    background: linear-gradient(135deg, var(--flavor-chocolate), #522d2a);
+}
+section.sabor-ninho {
+    background: linear-gradient(135deg, var(--flavor-vanilla), #9c9167);
+}
+section.sabor-morango {
+    background: linear-gradient(135deg, var(--flavor-strawberry), #7e2d3e);
+}
+section.sabor-prestigio {
+    /* Corrigido para Prestígio (coco e chocolate) */
+    background: linear-gradient(135deg, #2c1a13, #5c3422); 
+}
+
+.sabor-texto {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sabor-texto h2 {
+    color: white;
+    font-size: 4.5em;
+    font-family: var(--logo1);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.sabor-texto p {
+    font-size: 1.4em;
+    font-family: var(--texto-padrão);
+    color: #fcebeb;
+    line-height: 1.4em;
+    margin-bottom: 20px;
+}
+
+.sabor-texto ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sabor-texto li {
+    font-family: var(--texto-padrão);
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.sabor-texto li::before {
+    content: "✔";
+    color: #e2a0b1;
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.sabor-texto button {
+    padding: 15px 30px;
+    max-width: 250px;
+    font-size: 1.4em;
+    border-radius: 30px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: var(--logo1);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.sabor-texto button:hover {
+    background-color: white;
+    color: var(--bg-secondary);
+    transform: scale(1.05);
+}
+
+.sabor-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sabor-img img {
+    max-width: 400px;
+    width: 100%;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5));
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- FOOTER COMPACTADO --- */
+footer {
+    background-color: var(--bg-secondary);
+    color: white;
+    justify-content: space-between;
+}
+
+.org-rodape {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto 0;
+    padding: 40px 0;
+}
+
+div.mycakes-rodape h1 {
+    font-size: 3em;
+    font-family: var(--logo2);
+    color: white;
+}
+
+div.mycakes-rodape h2 {
+    font-size: 1.3em;
+    color: #e2a0b1;
+    text-align: left;
+    margin-top: 10px;
+}
+
+footer h2 {
+    font-size: 1.5em;
+    color: white;
+    font-family: var(--logo1);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+footer p, footer a {
+    font-family: var(--texto-padrão);
+    color: #f4eae8;
+    text-decoration: none;
+    font-size: 1em;
+    line-height: 1.8em;
+}
+
+footer a:hover {
+    color: var(--title-color);
+}
+
+div.social img {
+    width: 50px;
+    transition: transform 0.3s;
+}
+
+div.social img:hover {
+    transform: scale(1.1);
+}
+
+.credits {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+.credits p {
+    margin: 5px 0;
 }

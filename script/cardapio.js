@@ -10,6 +10,7 @@ const formCheckout = document.getElementById('form-checkout')
 const modalQrcode = document.getElementById('modal-qrcode')
 const qrcodeContainer = document.getElementById('qrcode-container')
 const btnWhatsapp = document.getElementById('btn-whatsapp')
+const contadorCarrinho = document.getElementById('contador-carrinho') // NOVO SELETOR
 
 // Estado da Aplicação (Memória temporária do app)
 let itensCarrinho = JSON.parse(localStorage.getItem('mycakes_carrinho')) || []
@@ -27,6 +28,19 @@ function fecharCarrinho(){
 btnAbrir.addEventListener('click', abrirCarrinho)
 fechar.addEventListener('click', fecharCarrinho)
 overlay.addEventListener('click', fecharCarrinho)
+
+// NOVO: Função para atualizar a bolinha com o número do carrinho
+function atualizarContador() {
+    // Soma a quantidade total de todos os itens do carrinho (ex: 2 bolos + 1 refri = 3)
+    const totalItens = itensCarrinho.reduce((acc, item) => acc + item.quantidade, 0)
+    
+    if (totalItens > 0) {
+        contadorCarrinho.textContent = totalItens
+        contadorCarrinho.style.display = "block" // Mostra a bolinha vermelha
+    } else {
+        contadorCarrinho.style.display = "none" // Esconde se estiver vazio
+    }
+}
 
 // 1. ADICIONAR ITEM AO CARRINHO
 document.querySelectorAll('.btn-adicionar').forEach(botao => {
@@ -58,6 +72,7 @@ function salvarAtualizar() {
 // 3. RENDERIZAR ITENS NA TELA
 function renderizarCarrinho() {
     containerItens.innerHTML = ""
+    atualizarContador() // NOVO: Atualiza o balão do ícone toda vez que renderiza
 
     if (itensCarrinho.length === 0) {
         containerItens.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio.</p>'
@@ -140,6 +155,12 @@ formCheckout.addEventListener('submit', (e) => {
     // Calcula valor total final
     const totalPedido = itensCarrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
 
+    // Cria a lista textual de itens para o QR Code
+    let listaItensTexto = ""
+    itensCarrinho.forEach(item => {
+        listaItensTexto += `- ${item.quantidade}x ${item.nome}\n`
+    })
+
     // A versão da biblioteca usada no projeto não lida bem com acentos e símbolos
     // como "º". Removê-los somente do QR evita o erro "code length overflow".
     const textoCompativelComQr = (texto) => texto
@@ -147,9 +168,13 @@ formCheckout.addEventListener('submit', (e) => {
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^\x20-\x7E\n]/g, '')
 
-    // Estruturação dos dados simplificados em string de texto para caber no QR Code
+    // Estruturação dos dados simplificados incluindo os ITENS em formato string de texto
     const dadosDoPedidoTexto = textoCompativelComQr(
-        `MyCakes Pedido ${numeroPedido}\nCliente: ${dadosCliente.nome}\nTurma: ${dadosCliente.turma}\nTotal: R$ ${totalPedido.toFixed(2).replace('.', ',')}`
+        `MyCakes Pedido ${numeroPedido}\n` +
+        `Cliente: ${dadosCliente.nome}\n` +
+        `Turma: ${dadosCliente.turma}\n` +
+        `Itens:\n${listaItensTexto}` +
+        `Total: R$ ${totalPedido.toFixed(2).replace('.', ',')}`
     )
 
     // 1. Limpa o container onde o QR code vai ser desenhado
@@ -195,14 +220,18 @@ formCheckout.addEventListener('submit', (e) => {
 
         const linkWhatsapp = `https://wa.me/${telefoneLoja}?text=${encodeURIComponent(textoMensagem)}`
         
-        // Limpar carrinho e fechar modal
+        // --- PROCESSO DE RESET DO CARRINHO E INTERFACE ---
+        // 1. Esvazia o array na memória
         itensCarrinho = []
+        // 2. Limpa o LocalStorage para não salvar itens velhos
         localStorage.removeItem('mycakes_carrinho')
+        // 3. Atualiza a tela (vai redesenhar o carrinho vazio e atualizar o contador de bolinha para "0/escondido")
         renderizarCarrinho()
 
+        // 4. Dispara o WhatsApp em nova aba
         window.open(linkWhatsapp, '_blank')
         
-        // Reseta o fluxo do formulário
+        // 5. Reseta o fluxo do formulário e esconde os modais
         formCheckout.style.display = "block"
         modalQrcode.style.display = "none"
         formCheckout.reset()
