@@ -425,13 +425,19 @@ div.mycakes-rodape h1 {
     font-size: 3em;
     font-family: var(--logo2);
     color: white;
+    
 }
 
 div.mycakes-rodape h2 {
     font-size: 1.3em;
     color: #e2a0b1;
-    text-align: left;
     margin-top: 10px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer h2 {
@@ -439,7 +445,6 @@ footer h2 {
     color: white;
     font-family: var(--logo1);
     margin-bottom: 15px;
-    text-align: left;
 }
 
 footer p, footer a {
@@ -469,6 +474,7 @@ div.social img:hover {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 15px;
     font-size: 0.9em;
+    border-radius: 5px;
 }
 
 .credits p {
