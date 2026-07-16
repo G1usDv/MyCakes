@@ -407,9 +407,12 @@ section.sabor-prestigio {
 /* --- FOOTER COMPACTADO --- */
 footer {
     background-color: var(--bg-secondary);
-    color: white;
     justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .org-rodape {
     display: grid;
@@ -424,20 +427,26 @@ footer {
 div.mycakes-rodape h1 {
     font-size: 3em;
     font-family: var(--logo2);
-    color: white;
-    
+    color: var(--title-color);
+    text-align: center;
 }
 
 div.mycakes-rodape h2 {
     font-size: 1.3em;
-    color: #e2a0b1;
+    color: #ffffff;
     margin-top: 10px;
+    text-align: center;
 }
 
-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+div.mycakes-rodape h2 > span {
+    color: var(--title-color);
+    
+}
+
+
+footer h1 > span {
+    color: #e2a0b1; /* Tom rosa complementar */
+    font-size: 0.9em;
 }
 
 footer h2 {
@@ -445,7 +454,9 @@ footer h2 {
     color: white;
     font-family: var(--logo1);
     margin-bottom: 15px;
+    text-align: center;
 }
+
 
 footer p, footer a {
     font-family: var(--texto-padrão);
@@ -453,15 +464,22 @@ footer p, footer a {
     text-decoration: none;
     font-size: 1em;
     line-height: 1.8em;
+    text-align: center;
+    transition: 0.3s;
 }
 
 footer a:hover {
-    color: var(--title-color);
+    color: #4A2031;
+    background-color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
 }
 
 div.social img {
     width: 50px;
     transition: transform 0.3s;
+    display: flex;
+    margin: auto;
 }
 
 div.social img:hover {
