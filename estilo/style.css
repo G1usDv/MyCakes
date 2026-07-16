@@ -468,18 +468,21 @@ footer p, footer a {
     transition: 0.3s ;
 }
 
-footer a:hover {
+footer  .links a:hover {
     color: #4A2031;
     background-color: #fff;
     padding: 5px 12px;
     border-radius: 20px;
 }
 
+
+
+
 div.social img {
     width: 50px;
-    transition: transform 0.3s;
     display: flex;
     margin: auto;
+    transition: transform 0.3s;
 }
 
 div.social img:hover {
