@@ -465,7 +465,7 @@ footer p, footer a {
     font-size: 1em;
     line-height: 1.8em;
     text-align: center;
-    transition: 0.3s;
+    transition: 0.3s ;
 }
 
 footer a:hover {
