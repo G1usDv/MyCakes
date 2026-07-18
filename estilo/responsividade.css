@@ -14,15 +14,22 @@
 /* Tablets e notebooks menores */
 @media (max-width: 1024px) {
     .scroll-container {
-        height: auto;
-        overflow: visible;
-        scroll-snap-type: none;
+        /* Mantém a navegação por seções também em tablets. A altura dinâmica
+           evita que a barra do navegador corte a última parte da seção. */
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        scroll-snap-type: y mandatory;
+        scroll-padding-top: 88px;
     }
 
     .secao-vistas {
         height: auto;
-        min-height: 0;
-        scroll-snap-align: none;
+        min-height: 100vh;
+        min-height: 100dvh;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
         padding: 120px 32px 72px;
     }
 
@@ -138,7 +145,9 @@
     }
 
     .header-container {
-        position: sticky;
+        /* Igual ao desktop: o cabeçalho fica disponível sem reduzir a área
+           rolável das seções. */
+        position: fixed;
         flex-direction: column;
         gap: 8px;
         padding: 10px 16px 12px;
@@ -173,12 +182,14 @@
     }
 
     .secao-vistas {
-        padding: 64px 20px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 96px 20px 64px;
     }
 
     .hero-principal {
-        min-height: calc(100vh - 86px);
-        min-height: calc(100svh - 86px);
+        min-height: 100vh;
+        min-height: 100dvh;
         padding-top: 56px;
         padding-bottom: 56px;
         background-position: center;
@@ -273,7 +284,8 @@
     section.sabor-prestigio {
         flex-direction: column !important;
         gap: 28px;
-        min-height: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
         padding: 64px 24px;
         text-align: center;
     }
@@ -369,7 +381,8 @@
     }
 
     .cardapio-main {
-        margin-top: 0;
+        /* O cabeçalho passa a ser fixo no mobile, como no desktop. */
+        margin-top: 76px;
     }
 
     .produtos {
@@ -458,7 +471,15 @@
         right: -100vw;
         width: 100%;
         max-width: none;
-        padding: 22px 18px;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100svh;
+        padding: max(22px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
     .carrinho-header {
@@ -472,6 +493,7 @@
 
     .total-carrinho {
         padding: 13px 15px;
+        flex: 0 0 auto;
     }
 
     .total-carrinho h3 {
@@ -488,6 +510,23 @@
         font-size: 16px;
     }
 
+    /* A lista não pode consumir a altura reservada para total e checkout.
+       Com muitos itens ela passa a rolar internamente, deixando o botão final
+       sempre alcançável, inclusive em aparelhos de baixa altura. */
+    .itens-carrinho {
+        flex: 0 1 auto;
+        min-height: 0;
+        max-height: 31dvh;
+        margin-bottom: 16px;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #form-checkout {
+        flex: 0 0 auto;
+        padding-bottom: max(4px, env(safe-area-inset-bottom));
+    }
+
     #modal-qrcode {
         padding: 16px 12px;
     }
@@ -495,6 +534,44 @@
     #qrcode-container img {
         max-width: 100%;
         height: auto;
+    }
+}
+
+/* Dispositivos baixos em orientação retrato: reduz apenas o espaço vertical
+   do checkout, sem alterar cores, fontes ou a hierarquia dos componentes. */
+@media (max-width: 767px) and (max-height: 700px) {
+    .carrinho {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+
+    .carrinho-header {
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .total-carrinho {
+        margin-bottom: 12px;
+        padding: 10px 13px;
+    }
+
+    #form-checkout {
+        gap: 8px;
+        padding-top: 12px;
+    }
+
+    .campo-form input,
+    .campo-form select,
+    .campo-form textarea {
+        padding: 8px 12px;
+    }
+
+    .campo-form textarea {
+        max-height: 68px;
+    }
+
+    .itens-carrinho {
+        max-height: 28dvh;
     }
 }
 
@@ -567,22 +644,168 @@
     }
 }
 
-/* Evita seções cortadas em notebooks de baixa altura. */
+/* Em notebooks baixos, as seções continuam encaixando; como elas podem crescer
+   conforme o conteúdo, a rolagem interna segue disponível sem cortar nada. */
 @media (max-height: 760px) and (min-width: 768px) {
     .scroll-container {
-        height: auto;
-        overflow: visible;
-        scroll-snap-type: none;
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
     }
 
     .secao-vistas {
         height: auto;
-        min-height: 0;
-        scroll-snap-align: none;
+        min-height: 100vh;
+        min-height: 100dvh;
+        scroll-snap-align: start;
     }
 
     .hero-principal {
         min-height: 620px;
+    }
+}
+
+/*
+   Escala progressiva para 2K, 4K, TVs e monitores ultrawide. A referência é
+   1920 × 1080: a escala acompanha a altura disponível (até 2×), preservando
+   as proporções e impedindo que uma tela ultrawide deixe o conteúdo esticado.
+*/
+@media (min-width: 1921px) and (min-height: 900px) {
+    html {
+        font-size: clamp(16px, 1.4815vh, 32px);
+    }
+
+    .header-container {
+        padding: clamp(15px, 1.3889vh, 30px) clamp(40px, 3.7037vh, 80px);
+    }
+
+    .secao-vistas {
+        padding: clamp(100px, 9.2593vh, 200px) clamp(40px, 3.7037vh, 80px) clamp(40px, 3.7037vh, 80px);
+    }
+
+    .hero-boasvindas {
+        max-width: min(86vw, 74.0741vh);
+    }
+
+    .proposito-conteudo {
+        max-width: min(90vw, 92.5926vh);
+    }
+
+    .valores-grid {
+        gap: clamp(30px, 2.7778vh, 60px);
+    }
+
+    .valor-card {
+        padding: clamp(30px, 2.7778vh, 60px) clamp(20px, 1.8519vh, 40px);
+        border-radius: clamp(20px, 1.8519vh, 40px);
+    }
+
+    section.hero div.container,
+    .container,
+    .org-rodape {
+        max-width: min(90vw, 111.1111vh);
+    }
+
+    section.hero div.container {
+        gap: clamp(20px, 1.8519vh, 40px);
+    }
+
+    div.container div.products {
+        border-radius: clamp(20px, 1.8519vh, 40px);
+    }
+
+    div.container div.products img {
+        max-width: min(20vw, 16.6667vh);
+        margin: clamp(15px, 1.3889vh, 30px) auto;
+    }
+
+    div.products div.info {
+        padding: clamp(15px, 1.3889vh, 30px);
+    }
+
+    section.sabor-chocolate,
+    section.sabor-ninho,
+    section.sabor-morango,
+    section.sabor-prestigio {
+        gap: clamp(30px, 3.3333vh, 72px);
+        padding: clamp(100px, 9.2593vh, 200px) 10%;
+    }
+
+    .sabor-texto {
+        max-width: min(50vw, 46.2963vh);
+    }
+
+    .sabor-img img {
+        max-width: min(40vw, 37.037vh);
+    }
+
+    .org-rodape {
+        gap: clamp(40px, 3.7037vh, 80px);
+        padding: clamp(40px, 3.7037vh, 80px) 0;
+    }
+
+    .cardapio-main {
+        margin-top: clamp(80px, 7.4074vh, 160px);
+    }
+
+    .produtos {
+        min-height: calc(100vh - clamp(80px, 7.4074vh, 160px));
+        padding: clamp(40px, 3.7037vh, 80px) 0;
+    }
+
+    .container {
+        padding-inline: clamp(20px, 1.8519vh, 40px);
+    }
+
+    .titulo-secao-cardapio {
+        margin: clamp(40px, 3.7037vh, 80px) 0 clamp(20px, 1.8519vh, 40px);
+        border-left-width: clamp(5px, 0.463vh, 10px);
+        padding-left: clamp(15px, 1.3889vh, 30px);
+    }
+
+    .grid-produtos {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(260px, 24.0741vh, 520px), 1fr));
+        gap: clamp(30px, 2.7778vh, 60px);
+        margin-bottom: clamp(50px, 4.6296vh, 100px);
+    }
+
+    .card {
+        min-height: clamp(420px, 38.8889vh, 840px);
+        padding: clamp(25px, 2.3148vh, 50px) clamp(20px, 1.8519vh, 40px);
+        border-radius: clamp(20px, 1.8519vh, 40px);
+    }
+
+    .img-wrapper,
+    .img-wrapper-bebida,
+    .img-wrapper-combo {
+        height: clamp(180px, 16.6667vh, 360px);
+        margin-bottom: clamp(15px, 1.3889vh, 30px);
+    }
+
+    .img-wrapper-bebida img {
+        height: clamp(140px, 12.963vh, 280px);
+    }
+
+    .img-wrapper-combo img {
+        height: clamp(150px, 13.8889vh, 300px);
+    }
+
+    .btn-carrinho {
+        right: clamp(40px, 3.7037vh, 80px);
+        bottom: clamp(40px, 3.7037vh, 80px);
+        width: clamp(70px, 6.4815vh, 140px);
+        height: clamp(70px, 6.4815vh, 140px);
+    }
+
+    .carrinho {
+        right: min(-35vw, -41.6667vh);
+        max-width: min(35vw, 41.6667vh);
+        padding: clamp(30px, 2.7778vh, 60px);
+    }
+
+    .carrinho.ativo {
+        right: 0;
     }
 }
 

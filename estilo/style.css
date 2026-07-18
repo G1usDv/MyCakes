@@ -476,13 +476,22 @@ footer  .links a:hover {
 }
 
 
+div.imagem{
+    display: flex;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
+div.imagem a {
+    
+}
 
 div.social img {
     width: 50px;
-    display: flex;
-    margin: auto;
+    margin: 0px;
     transition: transform 0.3s;
+    flex: 1;
 }
 
 div.social img:hover {
